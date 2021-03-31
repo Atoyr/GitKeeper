@@ -1,0 +1,16 @@
+﻿<prism:PrismApplication 
+  x:Class="GitKeeper.App"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:prism="http://prismlibrary.com/"
+  xmlns:local="clr-namespace:GitKeeper"
+  >
+  <Application.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Styles/MetroStyle.xaml" />
+        <ResourceDictionary Source="Styles/Controls.xaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </Application.Resources>
+</prism:PrismApplication>
