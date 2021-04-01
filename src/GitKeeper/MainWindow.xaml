@@ -10,7 +10,6 @@
   xmlns:views="clr-namespace:GitKeeper.Views;assembly=GitKeeper.Views"
   mc:Ignorable="d"
 
-  prism:ViewModelLocator.AutoWireViewModel="True"
   Title="{Binding Title.Value}" 
   TitleCharacterCasing="Normal"
   ShowIconOnTitleBar="True"
@@ -34,7 +33,7 @@
     <RowDefinition Height="21" />
   </Grid.RowDefinitions>
   <views:MainPanel 
-    Grid.Row="0"/>
+    DataContext="{Binding MainPanelViewModel}" />
   <views:ToolBar 
     Grid.Row="1"/>
 </Grid>

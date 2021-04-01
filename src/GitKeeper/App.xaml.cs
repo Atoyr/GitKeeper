@@ -11,6 +11,8 @@ using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Theming;
 using ControlzEx.Theming;
 using Unity;
+using GitKeeper.Views;
+using GitKeeper.ViewModels;
 
 namespace GitKeeper
 {
@@ -27,12 +29,20 @@ namespace GitKeeper
     protected override void RegisterTypes(IContainerRegistry containerRegistry) 
     {
       containerRegistry.RegisterInstance<IDialogCoordinator>(DialogCoordinator.Instance);
+
+      containerRegistry.Register<MainPanelViewModel>();
+      containerRegistry.RegisterForNavigation<StartPanel, StartPanelViewModel>();
     }
 
     protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
     {
       base.ConfigureModuleCatalog(moduleCatalog);
       moduleCatalog.AddModule(typeof(Module));
+    }
+
+    protected override void ConfigureViewModelLocator()
+    {
+        base.ConfigureViewModelLocator();
     }
 
     protected override IModuleCatalog CreateModuleCatalog()
@@ -56,6 +66,5 @@ namespace GitKeeper
 
       ThemeManager.Current.ChangeTheme(this, theme);
     }
-
   }
 }

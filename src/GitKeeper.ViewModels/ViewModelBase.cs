@@ -55,8 +55,8 @@ namespace GitKeeper.ViewModels
       this.Initialize();
       var container = Prism.Ioc.ContainerLocator.Container.GetContainer();
       this.Initialize(container);
-      this.InitializeEvent(container.Resolve<IEventAggregator>());
       this.InitializeRegion(container.Resolve<IRegionManager>());
+      this.InitializeEvent(container.Resolve<IEventAggregator>());
       this.InitializeDialog(container.Resolve<IDialogService>());
     }
 

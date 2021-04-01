@@ -3,6 +3,8 @@ using Unity;
 using Prism.Modularity;
 using Prism.Regions;
 using Prism.Ioc;
+using GitKeeper.Views;
+using GitKeeper.ViewModels;
 
 namespace GitKeeper
 {
