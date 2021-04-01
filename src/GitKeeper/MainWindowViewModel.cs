@@ -27,7 +27,10 @@ namespace GitKeeper
     {
       this.Title.Value = "GitKeeper";
     }
+
+    public override void InitializeRegion(IRegionManager regionManager) 
+    { 
+      regionManager.RegisterViewWithRegion("ContentRegion",typeof(Views.StartPanel));
+    }
   }
 }
-
-

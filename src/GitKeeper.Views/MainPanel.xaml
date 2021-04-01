@@ -10,18 +10,6 @@
 
   d:DesignHeight="300" 
   d:DesignWidth="300">
-  <Grid>
-    <Grid.RowDefinitions>
-      <RowDefinition Height="*" />
-      <RowDefinition Height="*" />
-    </Grid.RowDefinitions>
-
   <ContentControl 
-    Grid.Row="0"
-    prism:RegionManager.RegionName="ContentRegion" />
-    <Grid Background="Blue" 
-    Grid.Row="1" >
-      <Button Command="{Binding Nav}"/>
-    </Grid>
-    </Grid>
+    prism:RegionManager.RegionName="FooRegion" />
 </UserControl>

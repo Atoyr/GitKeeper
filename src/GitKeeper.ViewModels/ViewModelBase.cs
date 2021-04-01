@@ -67,9 +67,9 @@ namespace GitKeeper.ViewModels
 
     public virtual void Initialize(IUnityContainer unityContainer) { }
 
-    public virtual void InitializeEvent(IEventAggregator eventAggregator) { }
-
     public virtual void InitializeRegion(IRegionManager regionManager) { }
+
+    public virtual void InitializeEvent(IEventAggregator eventAggregator) { }
 
     public virtual void InitializeDialog(IDialogService dialogService) { }
   }

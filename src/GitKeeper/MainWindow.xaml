@@ -32,8 +32,8 @@
     <RowDefinition Height="*" />
     <RowDefinition Height="21" />
   </Grid.RowDefinitions>
-  <views:MainPanel 
-    DataContext="{Binding MainPanelViewModel}" />
+  <ContentControl 
+    prism:RegionManager.RegionName="ContentRegion" />
   <views:ToolBar 
     Grid.Row="1"/>
 </Grid>
