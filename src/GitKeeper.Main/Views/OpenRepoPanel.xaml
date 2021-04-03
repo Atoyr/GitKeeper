@@ -1,5 +1,5 @@
 <UserControl 
-  x:Class="GitKeeper.Main.Views.StartPanel"
+  x:Class="GitKeeper.Main.Views.OpenRepoPanel"
   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -25,17 +25,11 @@
       <TextBlock
         FontSize="42"
         Margin="20"
-        Text="開始" />
-      <controls:Tile  
-        Margin="20"
-        BorderThickness="2"
-        BorderBrush="Blue"
-        Title="{Binding OpenRepoTitle.Value}"
-        Dtil="{Binding OpenRepoDtil.Value}" 
-        Command="{Binding Navigate}" CommandParameter="{Binding OpenRepoTitle.Value}"/>
+        Text="フォルダを開く" />
       </StackPanel>
 
     </Grid>
   </Grid>
 </UserControl>
+
 

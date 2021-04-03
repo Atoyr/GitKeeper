@@ -27,6 +27,7 @@ namespace GitKeeper.Main
     public void RegisterTypes(IContainerRegistry containerRegistry)
     {
       containerRegistry.RegisterForNavigation<StartPanel>();
+      containerRegistry.RegisterForNavigation<OpenRepoPanel>();
     }
   }
 }

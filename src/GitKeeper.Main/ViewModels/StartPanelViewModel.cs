@@ -21,19 +21,31 @@ namespace GitKeeper.Main.ViewModels
   public class StartPanelViewModel : ViewModelBase, INavigationAware
   {
 
-    public ReactiveProperty<string> Message { get; } = new ReactiveProperty<string>();
+    public ReactiveProperty<string> OpenRepoTitle { get; } = new ReactiveProperty<string>();
+    public ReactiveProperty<string> OpenRepoDtil { get; } = new ReactiveProperty<string>();
 
-    public ReactiveCommand Hoge { get; private set; }
-    private Subject<bool> HogeSource { get; set; }
+    public ReactiveCommand<string> Navigate { get; private set; }
+    private Subject<bool> NavigateSource { get; set; }
 
     public override void Initialize()
     {
 
-    Message.Value = "Foo";
+      OpenRepoTitle.Value = "フォルダを開く";
+      OpenRepoDtil.Value = "リポジトリのあるフォルダを開きます";
 
-      HogeSource = new Subject<bool>();
-      Hoge = HogeSource.ToReactiveCommand(true);
-      Hoge.Subscribe(() => Message.Value = "Boo");
+      NavigateSource = new Subject<bool>();
+      Navigate = NavigateSource.ToReactiveCommand<string>(true);
+      Navigate.Subscribe(NavigateAction);
+    }
+
+
+    public void NavigateAction(string title)
+    {
+      if(title == OpenRepoTitle.Value ) 
+      {
+          RegionManager.RequestNavigate("ContentRegion", "OpenRepoPanel");
+      }
+
     }
 
     public bool IsNavigationTarget(NavigationContext context)
