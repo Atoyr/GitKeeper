@@ -17,8 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GitKeeper.Views\GitKeeper.Views.csproj" />
-    <ProjectReference Include="..\GitKeeper.ViewModels\GitKeeper.ViewModels.csproj" />
+    <ProjectReference Include="..\GitKeeper.Main\GitKeeper.Main.csproj" />
+    <ProjectReference Include="..\GitKeeper.Common\GitKeeper.Common.csproj" />
   </ItemGroup>
 
 </Project>

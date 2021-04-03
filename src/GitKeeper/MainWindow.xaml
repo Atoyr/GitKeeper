@@ -7,7 +7,6 @@
   xmlns:prism="http://prismlibrary.com/"
   xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
   xmlns:local="clr-namespace:GitKeeper"
-  xmlns:views="clr-namespace:GitKeeper.Views;assembly=GitKeeper.Views"
   mc:Ignorable="d"
 
   Title="{Binding Title.Value}" 
@@ -34,7 +33,7 @@
   </Grid.RowDefinitions>
   <ContentControl 
     prism:RegionManager.RegionName="ContentRegion" />
-  <views:ToolBar 
+  <local:ToolBar 
     Grid.Row="1"/>
 </Grid>
 </controls:MetroWindow>

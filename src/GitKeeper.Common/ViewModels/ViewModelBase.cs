@@ -11,7 +11,7 @@ using Unity;
 using Prism.Services.Dialogs;
 using MahApps.Metro.Controls.Dialogs;
 
-namespace GitKeeper.ViewModels
+namespace GitKeeper.Common.ViewModels
 {
   public abstract class ViewModelBase : BindableBase
   {

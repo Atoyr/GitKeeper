@@ -4,5 +4,6 @@
     xmlns:local="clr-namespace:GitKeeper.Controls">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/GitKeeper.Controls;component/Themes/Generic.GraphItem.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/GitKeeper.Controls;component/Themes/Generic.Tile.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

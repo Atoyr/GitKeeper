@@ -10,7 +10,7 @@ using Prism.Ioc;
 using Prism.Unity;
 using Unity;
 
-namespace GitKeeper.Views
+namespace GitKeeper.Main.Views
 {
   /// <summary>
   /// ToolBar.xaml の相互作用ロジック

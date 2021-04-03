@@ -11,7 +11,7 @@ using Prism.Unity;
 using Unity;
 using Prism.Services.Dialogs;
 using Prism.Commands;
-using GitKeeper.ViewModels;
+using GitKeeper.Common.ViewModels;
 using Reactive.Bindings;
 
 namespace GitKeeper
@@ -20,9 +20,6 @@ namespace GitKeeper
   {
     public ReactiveProperty<string> Title { get; } = new ReactiveProperty<string>();
 
-    [Dependency]
-    public MainPanelViewModel MainPanelViewModel { get; set; }
-
     public override void Initialize(IUnityContainer unityContainer)
     {
       this.Title.Value = "GitKeeper";
@@ -30,7 +27,6 @@ namespace GitKeeper
 
     public override void InitializeRegion(IRegionManager regionManager) 
     { 
-      regionManager.RegisterViewWithRegion("ContentRegion",typeof(Views.StartPanel));
     }
   }
 }

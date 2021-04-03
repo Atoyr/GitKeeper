@@ -10,14 +10,14 @@ using Prism.Ioc;
 using Prism.Unity;
 using Unity;
 
-namespace GitKeeper.Views
+namespace GitKeeper
 {
   /// <summary>
   /// ToolBar.xaml の相互作用ロジック
   /// </summary>
-  public partial class MainPanel : UserControl
+  public partial class ToolBar : UserControl
   {
-    public MainPanel()
+    public ToolBar()
     {
       InitializeComponent();
     }

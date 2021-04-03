@@ -12,8 +12,9 @@ using Reactive.Bindings;
 using Prism.Services.Dialogs;
 using MahApps.Metro.Controls.Dialogs;
 using System.Reactive.Subjects;
+using GitKeeper.Common.ViewModels;
 
-namespace GitKeeper.ViewModels
+namespace GitKeeper.Main.ViewModels
 {
   public class MainPanelViewModel : ViewModelBase
   {

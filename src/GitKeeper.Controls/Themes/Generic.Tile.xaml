@@ -1,0 +1,42 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:GitKeeper.Controls">
+    <Style TargetType="{x:Type local:Tile}">
+        
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:Tile}">
+                    <Border 
+                      x:Name="PART_Base"
+                      Background="{TemplateBinding Background}"
+                      BorderBrush="{TemplateBinding BorderBrush}"
+                      BorderThickness="{TemplateBinding BorderThickness}">
+                      <Grid>
+                        <Grid.ColumnDefinitions>
+                          <ColumnDefinition Width="Auto" />
+                          <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image 
+                          x:Name="PART_Icon"
+                          Grid.Column="0"
+                          Source="" />
+                        <StackPanel
+                          Grid.Column="1" >
+                          <TextBlock 
+                            x:Name="PART_Title" 
+                            FontSize="24"
+                            Text="{TemplateBinding Title}"
+                            />
+                          <TextBlock 
+                            x:Name="PART_Dtil" 
+                            FontSize="18"
+                            Text="{TemplateBinding Dtil}"/>
+                          </StackPanel>
+                      </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

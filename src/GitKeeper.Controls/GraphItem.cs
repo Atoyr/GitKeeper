@@ -41,14 +41,15 @@ namespace GitKeeper.Controls
     /// Step 2)
     /// Go ahead and use your control in the XAML file.
     ///
-    ///     <MyNamespace:CustomControl1/>
+    ///     <MyNamespace:GraphItem/>
     ///
     /// </summary>
-    public class CustomControl1 : Control
+    public class GraphItem : Control
     {
-        static CustomControl1()
+
+      static GraphItem()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(CustomControl1), new FrameworkPropertyMetadata(typeof(CustomControl1)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(GraphItem), new FrameworkPropertyMetadata(typeof(GraphItem)));
         }
     }
 }

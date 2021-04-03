@@ -3,10 +3,11 @@ using Unity;
 using Prism.Modularity;
 using Prism.Regions;
 using Prism.Ioc;
+using GitKeeper.Main.Views;
 
-namespace GitKeeper
+namespace GitKeeper.Main
 {
-  class Module : IModule
+  public class MainModule : IModule
   {
     [Dependency]
     public IUnityContainer Container { get; set; }
@@ -25,6 +26,7 @@ namespace GitKeeper
 
     public void RegisterTypes(IContainerRegistry containerRegistry)
     {
+      containerRegistry.RegisterForNavigation<StartPanel>();
     }
   }
 }
