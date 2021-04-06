@@ -26,13 +26,20 @@
         FontSize="42"
         Margin="20"
         Text="開始" />
-      <controls:Tile  
-        Margin="20"
-        BorderThickness="2"
-        BorderBrush="Blue"
-        Title="{Binding OpenRepoTitle.Value}"
-        Dtil="{Binding OpenRepoDtil.Value}" 
-        Command="{Binding Navigate}" CommandParameter="{Binding OpenRepoTitle.Value}"/>
+      <ItemsControl ItemsSource="{Binding NavigateItems}" >
+        <ItemsControl.ItemTemplate>
+        <DataTemplate>
+        <controls:Tile  
+          Margin="20"
+          Padding="8"
+          BorderThickness="2"
+          BorderBrush="Blue"
+          Title="{Binding Title.Value}"
+          Dtil="{Binding Dtil.Value}" 
+          Command="{Binding NavigateCommand}" />
+        </DataTemplate>
+        </ItemsControl.ItemTemplate>
+      </ItemsControl>
       </StackPanel>
 
     </Grid>

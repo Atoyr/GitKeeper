@@ -15,13 +15,12 @@ namespace GitKeeper.Main.Views
   /// <summary>
   /// StartPanel.xaml の相互作用ロジック
   /// </summary>
-  public partial class OpenRepoPanel : UserControl
+  public partial class MainPanel : UserControl
   {
-    public OpenRepoPanel()
+    public MainPanel()
     {
       InitializeComponent();
     }
   }
 }
-
 

@@ -72,7 +72,7 @@ namespace GitKeeper
     {
       base.OnInitialized();
 
-      Container.Resolve<IRegionManager>().RequestNavigate("ContentRegion","StartPanel" );
+      Container.Resolve<IRegionManager>().RequestNavigate("ContentRegion","MainPanel" );
     }
   }
 }
