@@ -11,8 +11,8 @@ using Prism.Unity;
 using Unity;
 using Prism.Services.Dialogs;
 using Prism.Commands;
-using GitKeeper.Common.ViewModels;
 using Reactive.Bindings;
+using GitKeeper.Main.ViewModels;
 
 namespace GitKeeper
 {

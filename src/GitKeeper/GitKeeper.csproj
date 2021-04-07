@@ -18,7 +18,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GitKeeper.Main\GitKeeper.Main.csproj" />
-    <ProjectReference Include="..\GitKeeper.Common\GitKeeper.Common.csproj" />
   </ItemGroup>
 
 </Project>
