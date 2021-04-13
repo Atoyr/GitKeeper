@@ -52,6 +52,8 @@ namespace GitKeeper.Controls
       DefaultStyleKeyProperty.OverrideMetadata(typeof(TabItemButton), new FrameworkPropertyMetadata(typeof(TabItemButton)));
     }
 
+    private Border PART_Border;
+
     public static readonly DependencyProperty TitleProperty =
       DependencyProperty.Register( 
           "Title", 
@@ -65,18 +67,41 @@ namespace GitKeeper.Controls
       set { SetValue(TitleProperty, value); }
     }
 
-
-    public static readonly DependencyProperty DtilProperty =
+    public static readonly Command NavigateCommandProperty =
       DependencyProperty.Register( 
-          "Dtil", 
-          typeof(string), 
+          "NavigateCommand", 
+          typeof(Command), 
           typeof(TabItemButton),
-          new FrameworkPropertyMetadata( string.Empty));
+          new FrameworkPropertyMetadata(new Command()));
 
-    public string Dtil
+    public Command NavigateCommand
     {
-      get { return (string)GetValue(DtilProperty); }
-      set { SetValue(DtilProperty, value); }
+      get { return (Command)GetValue(Navigation); }
+      set { SetValue(CommandProperty, value); }
+    }
+
+    public static readonly Command CloseCommandProperty =
+      DependencyProperty.Register( 
+          "CloseCommand", 
+          typeof(Command), 
+          typeof(TabItemButton),
+          new FrameworkPropertyMetadata(new Command()));
+
+    public Command CloseCommand
+    {
+      get { return (Command)GetValue(Navigation); }
+      set { SetValue(CommandProperty, value); }
+    }
+
+    public override void OnApplyTemplate()
+    {
+      base.OnApplyTemplate();
+      this.PART_Border = this.GetTemplateChild("PART_Border") as Button;
+
+      if (this.PART_Border != null)
+      {
+
+      }
     }
   }
 }

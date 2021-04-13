@@ -17,7 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GitKeeper.Common\GitKeeper.Common.csproj" />
     <ProjectReference Include="..\GitKeeper.Controls\GitKeeper.Controls.csproj" />
   </ItemGroup>
 

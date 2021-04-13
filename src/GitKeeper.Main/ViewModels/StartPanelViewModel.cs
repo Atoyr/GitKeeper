@@ -14,7 +14,6 @@ using Unity;
 using Prism.Services.Dialogs;
 using Reactive.Bindings;
 using MahApps.Metro.Controls.Dialogs;
-using GitKeeper.Common.ViewModels;
 
 
 namespace GitKeeper.Main.ViewModels
