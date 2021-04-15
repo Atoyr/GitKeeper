@@ -45,7 +45,7 @@ namespace GitKeeper.Controls
   ///     <MyNamespace:TabItemButton/>
   ///
   /// </summary>
-  public partial class TabItemButton : Button
+  public partial class TabItemButton : ContentControl
   {
     static TabItemButton()
     {
@@ -67,40 +67,77 @@ namespace GitKeeper.Controls
       set { SetValue(TitleProperty, value); }
     }
 
-    public static readonly Command NavigateCommandProperty =
+    public static readonly DependencyProperty IconProperty =
       DependencyProperty.Register( 
-          "NavigateCommand", 
-          typeof(Command), 
+          "Icon", 
+          typeof(ImageSource), 
           typeof(TabItemButton),
-          new FrameworkPropertyMetadata(new Command()));
+          new FrameworkPropertyMetadata( null));
 
-    public Command NavigateCommand
+    public ImageSource Icon
     {
-      get { return (Command)GetValue(Navigation); }
-      set { SetValue(CommandProperty, value); }
+      get { return (ImageSource)GetValue(IconProperty); }
+      set { SetValue(IconProperty, value); }
     }
 
-    public static readonly Command CloseCommandProperty =
+    public static readonly DependencyProperty NavigateCommandProperty =
+      DependencyProperty.Register( 
+          "NavigateCommand", 
+          typeof(ICommand), 
+          typeof(TabItemButton),
+          new FrameworkPropertyMetadata(null));
+
+    public ICommand NavigateCommand
+    {
+      get { return (ICommand)GetValue(NavigateCommandProperty); }
+      set { SetValue(NavigateCommandProperty, value); }
+    }
+
+    public static readonly DependencyProperty CloseCommandProperty =
       DependencyProperty.Register( 
           "CloseCommand", 
-          typeof(Command), 
+          typeof(ICommand), 
           typeof(TabItemButton),
-          new FrameworkPropertyMetadata(new Command()));
+          new FrameworkPropertyMetadata(null));
 
-    public Command CloseCommand
+    public ICommand CloseCommand
     {
-      get { return (Command)GetValue(Navigation); }
-      set { SetValue(CommandProperty, value); }
+      get { return (ICommand)GetValue(CloseCommandProperty); }
+      set { SetValue(CloseCommandProperty, value); }
     }
 
     public override void OnApplyTemplate()
     {
       base.OnApplyTemplate();
-      this.PART_Border = this.GetTemplateChild("PART_Border") as Button;
 
-      if (this.PART_Border != null)
+      this.PART_Border = this.GetTemplateChild("PART_Border") as Border;
+    }
+
+    private static void OnMouseDown(object sender, MouseButtonEventArgs e)
+    {
+      TabItemButton tabItemButton = sender as TabItemButton;
+      switch (e.ChangedButton)
       {
-
+        case MouseButton.Left:
+          if (tabItemButton.NavigateCommand != null && tabItemButton.NavigateCommand.CanExecute(sender))
+          {
+            tabItemButton.NavigateCommand.Execute(sender);
+          }
+          break;
+        case MouseButton.Middle:
+          if (tabItemButton.CloseCommand != null && tabItemButton.CloseCommand.CanExecute(sender))
+          {
+            tabItemButton.CloseCommand.Execute(sender);
+          }
+          break;
+        case MouseButton.Right:
+          break;
+        case MouseButton.XButton1:
+          break;
+        case MouseButton.XButton2:
+          break;
+        default:
+          break;
       }
     }
   }

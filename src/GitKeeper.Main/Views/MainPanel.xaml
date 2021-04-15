@@ -46,17 +46,7 @@
     </ItemsControl.ItemsPanel>
    <ItemsControl.ItemTemplate>
         <DataTemplate>
-          <StackPanel
-            Orientation="Horizontal" >
-          <Button 
-            Style="{StaticResource FlatButton}" >
-            <TextBlock Text="{Binding Title.Value}" />
-            </Button>
-            <Button
-              Style="{StaticResource FlatButton}" >
-              <TextBlock Text="X"/>
-            </Button>
-          </StackPanel>
+          <controls:TabItemButton Title="{Binding Title.Value}" />
         </DataTemplate>
     </ItemsControl.ItemTemplate>
     </ItemsControl>

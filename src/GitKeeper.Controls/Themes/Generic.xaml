@@ -5,5 +5,6 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/GitKeeper.Controls;component/Themes/Generic.GraphItem.xaml" />
         <ResourceDictionary Source="pack://application:,,,/GitKeeper.Controls;component/Themes/Generic.Tile.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/GitKeeper.Controls;component/Themes/Generic.TabItemButton.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
