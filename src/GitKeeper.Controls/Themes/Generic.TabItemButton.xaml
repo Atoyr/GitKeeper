@@ -21,11 +21,11 @@
                           x:Name="PART_Title" 
                           Margin="4,2,4,2"
                           FontSize="12"
-                          Text="AAAAA"
+                          Text="{TemplateBinding Title}"
                           />
                         <Button
                           x:Name="PART_CloseButton" 
-                          Margin="4,2,4,2"
+                          Padding="4,2,4,2"
                           Command="{TemplateBinding CloseCommand}" >X</Button>
                         </StackPanel> 
                     </Border>
