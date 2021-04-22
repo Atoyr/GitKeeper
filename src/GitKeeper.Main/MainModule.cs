@@ -29,6 +29,7 @@ namespace GitKeeper.Main
       containerRegistry.RegisterForNavigation<StartPanel>();
       containerRegistry.RegisterForNavigation<CloneRepoPanel>();
       containerRegistry.RegisterForNavigation<MainPanel>();
+      containerRegistry.RegisterForNavigation<RepositoryPanel>();
     }
   }
 }

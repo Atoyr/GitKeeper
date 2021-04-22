@@ -46,7 +46,7 @@ namespace GitKeeper.Main.ViewModels
           {
             var param = new NavigationParameters();
             param.Add("Path", dialog.SelectedPath);
-            NavigateAction("MainPanel", param);
+            NavigateAction("RepositoryPanel", param);
           }
         });
 
