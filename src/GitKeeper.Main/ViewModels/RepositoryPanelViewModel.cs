@@ -81,19 +81,10 @@ namespace GitKeeper.Main.ViewModels
     {
       var commits = repo.Commits;
       var graph = new List<GraphPoint>();
-      var filter = new LibGit2Sharp.CommitFilter { SortBy = LibGit2Sharp.CommitSortStrategies.Topological };
+      var filter = new LibGit2Sharp.CommitFilter { IncludeReachableFrom = repo.Refs };
 
       foreach(var commit in commits.QueryBy(filter))
       {
-        if (graph.Count() == 0)
-        {
-          var headPoint = new GraphPoint();
-          headPoint.IsCommit = true;
-          headPoint.Next = commit.Sha;
-          headPoint.VisualString = "○";
-          graph.Add(headPoint);
-        }
-
         // データきれいきれい
         for(var i = 0; i < graph.Count(); i++)
         {
@@ -103,39 +94,72 @@ namespace GitKeeper.Main.ViewModels
           }
         }
 
+        bool isFirst = true;
+        bool isCommit = true;
         // 次データ作成
         for(var i = 0; i < graph.Count(); i++)
         {
           if (graph[i].Next == commit.Sha)
           {
-            for(var j = 0; j < commit.Parents.Count(); j++)
-            foreach(var (item, index) in commit.Parents.Select((index,item) => (index, item)))
+            if (isCommit)
             {
-              if(index == 0)
+              foreach(var (item, index) in commit.Parents.Select((index,item) => (index, item)))
               {
-                graph[i].Prev = commit.Sha;
-                graph[i].Next = item.Sha;
-                graph[i].IsCommit = true;
-                graph[i].VisualString = commit.Parents.Count() == 1 ? "○" : "●";
-              }
-              else 
-              {
-                var p = graph.FirstOrDefault(x => x.IsEmpty());
-                if (p == null)
+                if(index == 0)
                 {
-                  p = new GraphPoint();
-                  graph.Add(p);
+                  graph[i].Prev = commit.Sha;
+                  graph[i].Next = item.Sha;
+                  graph[i].IsCommit = true;
+                  graph[i].VisualString = commit.Parents.Count() == 1 ? "○" : "●";
                 }
-                p.Prev = commit.Sha;
-                p.Next = item.Sha;
-                p.IsCommit = false;
-                p.VisualString = "＋";
+                else 
+                {
+                  var p = graph.FirstOrDefault(x => x.IsEmpty());
+                  if (p == null)
+                  {
+                    p = new GraphPoint();
+                    graph.Add(p);
+                  }
+                  p.Prev = commit.Sha;
+                  p.Next = item.Sha;
+                  p.IsCommit = false;
+                  p.VisualString = "＋";
+                }
               }
+              isFirst = false;
+              isCommit = false;
+            }
+            else
+            {
+              graph[i].Prev = string.Empty;
+              graph[i].Next = string.Empty;
+              graph[i].IsCommit = false;
+              graph[i].VisualString = "  ";
             }
           }
-          else
+          else if (string.IsNullOrEmpty(graph[i].Next ))
           {
+            graph[i].Prev = string.Empty;
+            graph[i].Next = string.Empty;
+            graph[i].IsCommit = false;
+            graph[i].VisualString = "  ";
+          }
+          else 
+          {
+            graph[i].IsCommit = false;
             graph[i].VisualString = "｜";
+          }
+        }
+        if(isFirst)
+        {
+          foreach(var (item, index) in commit.Parents.Select((index,item) => (index, item)))
+          {
+            var p = new GraphPoint();
+            graph.Add(p);
+            p.Prev = commit.Sha;
+            p.Next = item.Sha;
+            p.IsCommit = false;
+            p.VisualString = "★";
           }
         }
 
