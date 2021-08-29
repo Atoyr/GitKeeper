@@ -28,6 +28,7 @@ namespace GitKeeper.Pages
       get 
       {
         return ClassBuilder.Default("flex-auto")
+                                .Add("flex-container-center")
                                 .Add(colorSchemeService?.ColorScheme().Base)
                                 .Build();
       }
