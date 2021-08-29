@@ -1,12 +1,12 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 
 namespace GitKeeper.Data
 {
     public class ColorSchemeService
     {
+        public IDictionary<string, ColorScheme> ColorSchemes { get; set; }
         public ColorScheme Light { get; set; }
         public ColorScheme Dark { get; set; }
 
@@ -34,6 +34,7 @@ namespace GitKeeper.Data
 
         public ColorSchemeService()
         {
+            ColorSchemes = new Dictionary<string, ColorScheme>();
             Light = new ColorScheme();
             Dark = new ColorScheme();
 
@@ -66,18 +67,13 @@ namespace GitKeeper.Data
             Dark.Success.Foreground = "fg-white";
             Dark.Warning.Background = "bg-amber-darken-4";
             Dark.Warning.Foreground = "fg-white";
+
+            ColorSchemes["light"] = Light;
+            ColorSchemes["dark"] = Dark;
         }
 
-        public void ChangeTheme(
-                      string themeName ,
-                      [CallerMemberName] string memberName = "",
-                      [CallerFilePath] string filePath = "",
-                      [CallerLineNumber] int lineNumber = -1
-            ) 
+        public void ChangeTheme( string themeName) 
         {  
-          // サンプルとしてフルパスの表示は長いので、ファイル名だけにする
-          string fileName = System.IO.Path.GetFileName(filePath);
-          Console.WriteLine($"：{memberName}, {fileName}, {lineNumber}");
           switch ( themeName.ToLower() )
           {
           case "dark":
@@ -97,6 +93,16 @@ namespace GitKeeper.Data
             OnColorChanged?.Invoke();
         }
 
-        public ColorScheme ColorScheme() => IsDark ? Dark : Light ;
+        public ColorScheme ColorScheme()
+        {
+          if ( IsDark)
+          {
+            ColorSchemes["dark"];
+          }
+          else
+          {
+            ColorSchemes["light"];
+          }
+        }
     }
 }
