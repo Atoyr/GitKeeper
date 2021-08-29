@@ -1,7 +1,7 @@
 @page "/"
 @inherits ComponentBase
 
-<div class=@BaseClass >
+<div class="@BaseClass" >
 
 @if (Repositories.Count() > 0)
 {
@@ -9,7 +9,10 @@
 }
 else
 {
+  <div class=>
+
   <h1 class=@TitleClass>Choose Repository</h1>
+  </div>
 }
 
 <button @onclick="ChangeTheme" > change </button>

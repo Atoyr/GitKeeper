@@ -21,15 +21,6 @@ namespace GitKeeper.Data
           }
         }
 
-        public static void GetCallerInfoSample(
-                      string msg,
-                      [CallerMemberName] string memberName = "",
-                      [CallerFilePath] string filePath = "",
-                      [CallerLineNumber] int lineNumber = -1
-                    )
-        {
-        }
-
         public event Action OnColorChanged;
 
         public ColorSchemeService()
@@ -97,11 +88,11 @@ namespace GitKeeper.Data
         {
           if ( IsDark)
           {
-            ColorSchemes["dark"];
+            return ColorSchemes["dark"];
           }
           else
           {
-            ColorSchemes["light"];
+            return ColorSchemes["light"];
           }
         }
     }
