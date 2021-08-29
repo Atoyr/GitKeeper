@@ -13,17 +13,34 @@ using GitKeeper.Utilities;
 
 namespace GitKeeper.Pages
 {
-  public partial class Index
+  public partial class Index : ComponentBase
   {
     [Inject]
     public RepositoryService Repositories { set; get; }
 
     [Inject]
-    public ColorSchemeService ColorSchemes { set; get; }
+    public ColorSchemeService colorSchemeService { get; set; }
 
-    public string BaseClass = ClassBuilder
-                                .Default("flex-auto")
-                                .Add(ColorSchemes.Light.Background, ColorSchemes.Light.Foreground)
+    private bool isDark = false;
+
+    public string BaseClass 
+    {
+      get 
+      {
+        return ClassBuilder.Default("flex-auto")
+                                .Add(colorSchemeService?.ColorScheme().Base)
                                 .Build();
+      }
+    }
+
+    public string TitleClass => new ClassBuilder(string.Empty)
+                                .Add(colorSchemeService?.ColorScheme().Accent)
+                                .Build();
+
+    public void ChangeTheme()
+    {
+      colorSchemeService.ChangeTheme(isDark ? "dark": "light");
+      isDark = !isDark;
+    }
   }
 }

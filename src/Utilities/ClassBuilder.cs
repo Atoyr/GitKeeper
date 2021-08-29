@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using GitKeeper.Data;
 
 namespace GitKeeper.Utilities
 {
@@ -12,16 +13,41 @@ namespace GitKeeper.Utilities
             classList = new List<string>();
         }
 
-        public static ClassBuilder Default(string className)
+        public ClassBuilder(string className)
+        {
+            classList = new List<string>();
+            Add(className);
+        }
+
+        public static ClassBuilder Empty()
         {
             var cb = new ClassBuilder();
-            cb.classList.Add(className);
             return cb;
         }
 
-        public ClassBuilder Add(params string[] classNames)
+        public static ClassBuilder Default(string className)
         {
-            classList.AddRange(classNames);
+            var cb = new ClassBuilder();
+            return cb.Add(className);
+        }
+
+        public ClassBuilder Add(string className) => Add(className, !string.IsNullOrWhiteSpace(className));
+
+        public ClassBuilder Add(string className, Func<bool> when) => Add(className, when());
+
+        public ClassBuilder Add(string className, bool when)
+        {
+            if(when)
+            {
+              classList.Add(className);
+            }
+            return this;
+        }
+
+        public ClassBuilder Add(Color color)
+        {
+            Add(color?.Background);
+            Add(color?.Foreground);
             return this;
         }
 
