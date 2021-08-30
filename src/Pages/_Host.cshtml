@@ -1,4 +1,4 @@
-﻿@page "/"
+@page "/"
 @namespace GitKeeper.Pages
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
@@ -15,6 +15,28 @@
     <!--<link href="css/bootstrap/bootstrap.min.css" rel="stylesheet"  />-->
     <link href="css/site.css" rel="stylesheet" />
     <link href="GitKeeper.styles.css" rel="stylesheet" />
+    <script>
+        const { BrowserWindow, dialog } = require('electron').remote;
+        function win() {
+            return BrowserWindow.getFocusedWindow();
+        }
+        function defaultNull(obj) { // C#側から渡ってくるオプションは存在しないプロパティにnullが入っているが、electronのAPIはキー無し（undefined）を期待しているのでエラーを吐く場合があります。それの回避。
+            const newObj = { ...obj };
+            for (const key of Object.keys(newObj)) {
+                if (newObj[key] === null) delete newObj[key];
+            }
+            return newObj;
+        }
+        function showOpenDialog(options) {
+            return dialog.showOpenDialog(win(), defaultNull(options));
+        }
+        function showErrorBox(title, content) {
+            return dialog.showErrorBox(title || undefined, content || undefined);
+        }
+        win().on('close', function(e) {
+            DotNet.invokeMethodAsync("seedtable-egui", "OnClose");
+        });
+    </script>
 </head>
 <body>
     <component type="typeof(App)" render-mode="ServerPrerendered" />

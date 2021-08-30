@@ -13,19 +13,26 @@ using GitKeeper.Utilities;
 
 namespace GitKeeper.Shared
 {
-  public partial class TabBar
+  public partial class TabBar: LayoutComponentBase
   {
       [Inject]
       public ColorSchemeService colorSchemeService { get; set; }
 
-      public string TabBarClass 
+      public List<RepositoryInfo> TabItems { get; set; }
+
+      public string TabBarClass
       {
-        get 
+        get
         {
           return ClassBuilder.Default("tab-bar")
                                   .Add(colorSchemeService?.ColorScheme().Accent)
                                   .Build();
         }
+      }
+
+      protected override void OnInitialized()
+      {
+          TabItems = new List<RepositoryInfo>();
       }
   }
 }
