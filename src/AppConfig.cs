@@ -6,6 +6,8 @@ namespace GitKeeper
     {
         private string appName { get; set;  }
 
+        public string ApplicationPath { get; } = System.Reflection.Assembly.GetExecutingAssembly().Location;
+
 
 
         private AppConfig() { }

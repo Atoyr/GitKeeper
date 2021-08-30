@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.Extensions.Logging;
 using Microsoft.JSInterop;
+using GitKeeper;
 using GitKeeper.Data;
 using GitKeeper.Utilities;
 using GitKeeper.Utilities.Electron;
@@ -25,6 +26,9 @@ namespace GitKeeper.Pages
 
         [Inject]
         public ColorSchemeService colorSchemeService { get; set; }
+
+        [Inject]
+        public AppConfig appConfig { get; set; }
 
         private bool isDark = false;
 
@@ -51,11 +55,12 @@ namespace GitKeeper.Pages
 
         async void ShowOpenDialog()
         {
+          Console.WriteLine(appConfig.ApplicationPath);
             if (JSRuntime == null ) return;
             var result = await JSRuntime.ShowOpenDialog(new OpenDialogOption {
                     Title = "フォルダを開く",
                     ButtonLabel = "開く",
-                    DefaultPath = @"C:\",
+                    DefaultPath = appConfig.ApplicationPath,
                     Properties = new string[] { "openDirectory" },
                     });
             if (!result.Canceled) {
