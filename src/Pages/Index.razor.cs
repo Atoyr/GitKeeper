@@ -19,6 +19,9 @@ namespace GitKeeper.Pages
     public partial class Index : ComponentBase
     {
         [Inject]
+        public NavigationManager NavigationManager { set; get; }
+
+        [Inject]
         public RepositoryService Repositories { set; get; }
 
         [Inject]
@@ -55,17 +58,24 @@ namespace GitKeeper.Pages
 
         async void ShowOpenDialog()
         {
-          Console.WriteLine(appConfig.ApplicationPath);
             if (JSRuntime == null ) return;
             var result = await JSRuntime.ShowOpenDialog(new OpenDialogOption {
                     Title = "フォルダを開く",
                     ButtonLabel = "開く",
-                    DefaultPath = appConfig.ApplicationPath,
+                    // DefaultPath = appConfig.ApplicationPath,
                     Properties = new string[] { "openDirectory" },
                     });
             if (!result.Canceled) {
-                Console.WriteLine(result.FilePaths.FirstOrDefault());
-                StateHasChanged();
+                try 
+                {
+                  var repositoryInfo = Repositories.AddRepository(result.FilePaths.FirstOrDefault());
+                  NavigationManager.NavigateTo($"repository/{repositoryInfo.ID}");
+                }
+                catch
+                {
+                  StateHasChanged();
+                  return;
+                }
             }
         }
     }

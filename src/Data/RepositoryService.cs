@@ -22,20 +22,20 @@ namespace GitKeeper.Data
       return repositories.Count;
     }
 
-    public void AddRepository(string path)
+    public RepositoryInfo AddRepository(string path)
     {
-
-
+        var repositoryInfo = new RepositoryInfo(path);
+        repositories.Add(repositoryInfo);
         OnAddedRepository?.Invoke();
+        return repositoryInfo;
     }
 
-    public IRepository GetRepository(string path)
+    public RepositoryInfo GetRepository(string id)
     {
-        if ( repositories.Any(x => x.Path == path))
+        if ( repositories.Any(x => x.ID == id))
         {
-            var repo = repositories.First(x => x.Path == path);
-            return null;
-
+            var repository = repositories.First(x => x.ID == id);
+            return repository;
         }
         else
         {
@@ -47,6 +47,7 @@ namespace GitKeeper.Data
     {
         return repositories.ToList();
     }
+
 
     public IList<RepositoryInfo> GetRepositories(Func<RepositoryInfo, bool> whereFunc)
     {
