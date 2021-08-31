@@ -1,5 +1,11 @@
 @page "/repository/{ID}"
 @inherits ComponentBase
 
-<h1>repository @ID</h1>
-<h2>path to  @repositoryInfo.Path</h2>
+<div>
+<h1>repository @ID</h1> <br />
+<h2>path to  @repository.Info.Path</h2> <br />
+@foreach(var commit in repository.Head.Commits)
+{
+  <p>@commit.Message</p> <br />
+}
+</div>

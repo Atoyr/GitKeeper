@@ -13,6 +13,7 @@ using GitKeeper;
 using GitKeeper.Data;
 using GitKeeper.Utilities;
 using GitKeeper.Utilities.Electron;
+using LibGit2Sharp;
 
 namespace GitKeeper.Pages
 {
@@ -21,14 +22,15 @@ namespace GitKeeper.Pages
       [Parameter]
       public string ID { get; set; }
 
-      protected RepositoryInfo repositoryInfo { get; set; } 
+      protected LibGit2Sharp.Repository repository { get; set; } 
 
         [Inject]
         public RepositoryService Repositories { set; get; }
 
       protected override void OnInitialized()
       {
-          repositoryInfo = Repositories.GetRepository(ID);
+          var repositoryInfo = Repositories.GetRepository(ID);
+          repository = new LibGit2Sharp.Repository(repositoryInfo.Path);
       }
     }
 }
