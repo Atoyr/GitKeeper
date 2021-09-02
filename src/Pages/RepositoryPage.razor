@@ -1,0 +1,39 @@
+@page "/repository/{ID}"
+@inherits ComponentBase
+
+<div>
+<h1>repository @ID</h1> <br />
+<h2>path to  @Repository.Info.Path</h2> <br />
+<table class="bg-gray-lighten-4">
+  <tr>
+    <th><p>commi message</p></th>
+    <th><p>author</p></th>
+    <th><p>SHA</p></th>
+    <th><p>commit datetime</p></th>
+  </tr>
+  @foreach(var commit in Commits)
+  {
+    <!--
+    <div class="commit-log-container">
+      <div class="commit-log-a">@commit.MessageShort</div>
+      <div class="commit-log-b"> </div>
+      <div class="commit-log-c">@commit.Author.When.DateTime.ToString("yyyy/MM/dd HH:mm:ss") </div>
+    </div>
+    -->
+    <tr class="hover-bg-darken-20">
+       <td>
+         <p class="bg-blue">
+           @foreach(var b in commit.Branches)
+           {
+             @b.FriendlyName
+           }
+         @commit.MessageShort
+         </p>
+         </td>
+       <td>@commit.Author</td>
+       <td>@commit.ShaShort</td>
+       <td>@commit.DateTime.ToString("yyyy/MM/dd HH:mm:ss")  </td>
+    </tr>
+  }
+</table>
+</div>
