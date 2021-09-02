@@ -41,7 +41,10 @@ namespace GitKeeper.Data
                 {
                     continue;
                 }
-                Branches.Add(b);
+                if (!b.IsCurrentRepositoryHead)
+                {
+                    Branches.Add(b);
+                }
 
 
                 // if (!commits.Any())
