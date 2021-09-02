@@ -33,11 +33,13 @@ namespace GitKeeper.Pages
             var repositoryInfo = Repositories.GetRepository(ID);
             this.Repository = new LibGit2Sharp.Repository(repositoryInfo.Path);
 
-            Commits = new List<CommitInfo>();
-            foreach( var commit in this.Repository.Head.Commits)
-            {
-                Commits.Add(new CommitInfo(commit,this.Repository.Branches));
-            }
+            Commits = CommitInfo.GenerateCommitInfos(this.Repository.Head.Commits, this.Repository.Branches);
+
+
+            // foreach( var commit in this.Repository.Head.Commits)
+            // {
+            //     Commits.Add(new CommitInfo(commit,this.Repository.Branches));
+            // }
         }
 
 

@@ -16,7 +16,30 @@ namespace GitKeeper.Data
         public string ParentSha { get; private set; }
         public DateTime DateTime { get; private set; }
         public List<Branch> Branches { get; set; }
-        public bool BranchHead { get; set; }
+
+        public static List<CommitInfo> GenerateCommitInfos(IEnumerable<Commit> commits, BranchCollection branches)
+        {
+            var commitInfos = new List<CommitInfo>();
+            var branchList = new List<Branch>();
+            foreach(var commit in commits)
+            {
+                var ci = new CommitInfo(commit);
+
+                foreach(var b in branches)
+                {
+                    if (branchList.Any(x => x == b)) continue;
+                    if (!b.Commits.Any(c => c.Sha == ci.Sha)) continue;
+
+                    if (!b.IsCurrentRepositoryHead)
+                    {
+                        ci.Branches.Add(b);
+                        branchList.Add(b);
+                    }
+                }
+                commitInfos.Add(ci);
+            }
+            return commitInfos;
+        }
 
 
         private CommitInfo()
@@ -24,7 +47,7 @@ namespace GitKeeper.Data
             OnInitialized();
         }
 
-        public CommitInfo(Commit commit, BranchCollection branches)
+        public CommitInfo(Commit commit)
         {
             OnInitialized();
             Message = commit.Message;
@@ -33,29 +56,11 @@ namespace GitKeeper.Data
             Sha = commit.Sha;
             ParentSha = commit.Parents.FirstOrDefault()?.Sha;
             DateTime = commit.Author.When.DateTime;
-            Branches = new List<Branch>();
-
-            foreach(var b in branches)
-            {
-                if (!b.Commits.Any(c => c.Sha == this.Sha))
-                {
-                    continue;
-                }
-                if (!b.IsCurrentRepositoryHead)
-                {
-                    Branches.Add(b);
-                }
-
-
-                // if (!commits.Any())
-                // {
-                //     continue;
-                // }
-            }
         }
 
         protected void OnInitialized()
         {
+            Branches = new List<Branch>();
         }
 
         public bool HasParent()
