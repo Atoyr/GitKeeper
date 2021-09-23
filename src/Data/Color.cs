@@ -258,10 +258,10 @@ namespace GitKeeper.Data
         public const string Lighten40 = "lighten-40";
         public const string Lighten20 = "lighten-20";
 
-        public string Foreground(string color) => "fg-" + color;
-        public string Background(string color) => "bg-" + color;
-        public string HoverForeground(string color) => "hover-fg-" + color;
-        public string HoverBackground(string color) => "hover-bg-" + color;
+        public static string Foreground(string color) => "fg-" + color;
+        public static string Background(string color) => "bg-" + color;
+        public static string HoverForeground(string color) => "hover-fg-" + color;
+        public static string HoverBackground(string color) => "hover-bg-" + color;
     }
 
     public class Color
