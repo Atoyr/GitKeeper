@@ -33,7 +33,11 @@ namespace GitKeeper.Utilities
 
         public ClassBuilder Add(string className) => Add(className, !string.IsNullOrWhiteSpace(className));
 
+        public ClassBuilder Add(string className, string joinClassName) => Add(className + joinClassName, !string.IsNullOrWhiteSpace(className + joinClassName));
+
         public ClassBuilder Add(string className, Func<bool> when) => Add(className, when());
+
+        public ClassBuilder Add(string className, string joinClassName, Func<bool> when) => Add(className + joinClassName, when());
 
         public ClassBuilder Add(string className, bool when)
         {
@@ -43,6 +47,8 @@ namespace GitKeeper.Utilities
             }
             return this;
         }
+
+        public ClassBuilder Add(string className, string joinClassName, bool when) => Add(className + joinClassName, when);
 
         public ClassBuilder Add(Color color)
         {

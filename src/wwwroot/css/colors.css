@@ -680,6 +680,32 @@
   background-color: rgba(255,255,255,0);
 }
 
+.bg-darken-80:hover {
+  color: rgba(0,0,0,0.8);
+}
+.bg-darken-60:hover {
+  color: rgba(0,0,0,0.6);
+}
+.bg-darken-40:hover {
+  color: rgba(0,0,0,0.4);
+}
+.bg-darken-20:hover {
+  color: rgba(0,0,0,0.2);
+}
+
+.bg-lighten-80:hover {
+  color: rgba(255,255,255,0.8);
+}
+.bg-lighten-60:hover {
+  color: rgba(255,255,255,0.6);
+}
+.bg-lighten-40:hover {
+  color: rgba(255,255,255,0.4);
+}
+.bg-lighten-20:hover {
+  color: rgba(255,255,255,0.2);
+}
+
 /* forground */
 /* Red */
 .fg-red {
@@ -1360,6 +1386,33 @@
 .fg-transparent {
   color: rgba(255,255,255,0);
 }
+
+.fg-darken-80:hover {
+  color: rgba(0,0,0,0.8);
+}
+.fg-darken-60:hover {
+  color: rgba(0,0,0,0.6);
+}
+.fg-darken-40:hover {
+  color: rgba(0,0,0,0.4);
+}
+.fg-darken-20:hover {
+  color: rgba(0,0,0,0.2);
+}
+
+.fg-lighten-80:hover {
+  color: rgba(255,255,255,0.8);
+}
+.fg-lighten-60:hover {
+  color: rgba(255,255,255,0.6);
+}
+.fg-lighten-40:hover {
+  color: rgba(255,255,255,0.4);
+}
+.fg-lighten-20:hover {
+  color: rgba(255,255,255,0.2);
+}
+
 
 
 .hover-bg-red:hover {
