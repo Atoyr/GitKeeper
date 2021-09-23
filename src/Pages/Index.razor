@@ -1,5 +1,6 @@
 @page "/"
 @inherits ComponentBase
+@using GitKeeper.Components
 
 <div class="@BaseClass" >
 
@@ -11,6 +12,11 @@ else
 {
 
   <div class="flex-container-column">
+  <MaterialIcon Theme="@Themes.Filled" Size="24" Color="fg-red">cast_connected</MaterialIcon>
+  <MaterialIcon Theme="@Themes.Outlined" Size="24" Color="fg-purple">cast_connected</MaterialIcon>
+  <MaterialIcon Theme="@Themes.Rounded" Size="24">cast_connected</MaterialIcon>
+  <MaterialIcon Theme="@Themes.Sharp" Size="24">cast_connected</MaterialIcon>
+  <MaterialIcon Theme="@Themes.TwoTone" Size="24">cast_connected</MaterialIcon>
   <button @onclick="ShowOpenDialog"> Choose Repository </button>
   <button> Clone Repository </button>
   <button @onclick="ChangeTheme" > change </button>
