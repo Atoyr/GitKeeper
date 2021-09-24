@@ -28,7 +28,7 @@ namespace GitKeeper.Pages
         public IJSRuntime JSRuntime { set; get; }
 
         [Inject]
-        public ColorSchemeService colorSchemeService { get; set; }
+        public ThemesService themesService { get; set; }
 
         [Inject]
         public AppConfig appConfig { get; set; }
@@ -41,18 +41,18 @@ namespace GitKeeper.Pages
             {
                 return ClassBuilder.Default("flex-auto")
                     .Add("flex-container-center")
-                    .Add(colorSchemeService?.ColorScheme().Base)
+                    .Add(themesService?.Theme().Default)
                     .Build();
             }
         }
 
         public string TitleClass => new ClassBuilder(string.Empty)
-            .Add(colorSchemeService?.ColorScheme().Accent)
+            .Add(themesService?.Theme().Primary)
             .Build();
 
         public void ChangeTheme()
         {
-            colorSchemeService.ChangeTheme(isDark ? "dark": "light");
+            themesService.ChangeTheme(isDark ? "dark": "light");
             isDark = !isDark;
         }
 
@@ -66,7 +66,7 @@ namespace GitKeeper.Pages
                     Properties = new string[] { "openDirectory" },
                     });
             if (!result.Canceled) {
-                try 
+                try
                 {
                   var repositoryInfo = Repositories.AddRepository(result.FilePaths.FirstOrDefault());
                   NavigationManager.NavigateTo($"repository/{repositoryInfo.ID}");

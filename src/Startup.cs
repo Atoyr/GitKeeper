@@ -31,7 +31,7 @@ namespace GitKeeper
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<RepositoryService>();
-            services.AddSingleton<ColorSchemeService>();
+            services.AddSingleton<ThemesService>();
             services.AddSingleton<AppConfig>(new AppConfig("gitkeeper"));
         }
 

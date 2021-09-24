@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using GitKeeper.Data;
+using GitKeeper.Themes;
 
 namespace GitKeeper.Utilities
 {

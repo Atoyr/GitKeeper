@@ -16,7 +16,7 @@ namespace GitKeeper.Shared
   public partial class TabBar: LayoutComponentBase
   {
       [Inject]
-      public ColorSchemeService colorSchemeService { get; set; }
+      public ThemesService themesService { get; set; }
 
       public List<RepositoryInfo> TabItems { get; set; }
 
@@ -25,7 +25,7 @@ namespace GitKeeper.Shared
         get
         {
           return ClassBuilder.Default("tab-bar")
-                                  .Add(colorSchemeService?.ColorScheme().Accent)
+                                  .Add(themesService?.Theme().Primary)
                                   .Build();
         }
       }

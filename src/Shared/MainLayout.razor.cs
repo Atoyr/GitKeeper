@@ -15,7 +15,7 @@ namespace GitKeeper.Shared
   public partial class MainLayout : LayoutComponentBase
   {
       [Inject]
-      public ColorSchemeService colorSchemeService { get; set; }
+      public ThemesService themesService { get; set; }
 
       protected override void OnInitialized()
       {
