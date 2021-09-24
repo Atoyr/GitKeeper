@@ -1,10 +1,12 @@
 using System;
+using System.Runtime.InteropServices;
 
 namespace GitKeeper
 {
     public class AppConfig
     {
         const string USERPROFILE = "USERPROFILE";
+        const string HOME = "USERPROFILE";
         const string ConfigFileName = "config";
         const string ThemeFolderName = "Theme";
 
@@ -26,7 +28,15 @@ namespace GitKeeper
 
         protected void Initialize()
         {
-            Path = System.IO.Path.Combine(Environment.GetEnvironmentVariable(USERPROFILE), "." + AppName);
+            if (IsOSPlatform(OSPlatform.Windows))
+            {
+                Path = System.IO.Path.Combine(Environment.GetEnvironmentVariable(USERPROFILE), "." + AppName);
+            }
+            else
+            {
+                Path = System.IO.Path.Combine(Environment.GetEnvironmentVariable(HOME), "." + AppName);
+            }
+
             if (!System.IO.Directory.Exists(Path))
             {
                 System.IO.Directory.CreateDirectory(Path);
