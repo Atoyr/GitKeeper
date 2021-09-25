@@ -29,7 +29,7 @@ namespace GitKeeper.Utilities
         public StyleBuilder AddStyle(string prop, string value, bool when = true) => when ? AddStyle(prop, value) : this;
         public StyleBuilder AddStyle(string prop, Func<string> value, bool when = true) => when ? AddStyle(prop, value()) : this;
         public StyleBuilder AddStyle(string prop, string value, Func<bool> when = null) => AddStyle(prop, value, when is not null && when());
-        public StyleBuilder AddStyle(string prop, Func<string> value, Func<bool> when = null) => AddStyle(prop, value(), when is not nul;l && when());
+        public StyleBuilder AddStyle(string prop, Func<string> value, Func<bool> when = null) => AddStyle(prop, value(), when is not null && when());
 
         public string Build() => stringBuilder.ToString().Trim();
         public override string ToString() => Build();
