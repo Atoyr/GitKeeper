@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace GitKeeper
 {
@@ -309,9 +310,12 @@ namespace GitKeeper
             public const string Lighten20 = "lighten-20";
         }
 
-        public static string Foreground(string color) => "fg-" + color;
-        public static string Background(string color) => "bg-" + color;
-        public static string HoverForeground(string color) => "hover-fg-" + color;
-        public static string HoverBackground(string color) => "hover-bg-" + color;
+        public static string Foreground(string color) => "fg-" + removeAttribute(color);
+        public static string Background(string color) => "bg-" + removeAttribute(color);
+        public static string HoverForeground(string color) => "hover-fg-" + removeAttribute(color);
+        public static string HoverBackground(string color) => "hover-bg-" + removeAttribute(color);
+
+        private static string removeAttribute(string color) => Regex.Replace(color, "^(fg-|bg-|hover-fg|hover-bg)", "");
+
     }
 }

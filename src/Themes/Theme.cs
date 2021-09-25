@@ -1,4 +1,5 @@
 using System;
+using Newtonsoft.Json;
 
 namespace GitKeeper.Themes
 {
@@ -18,7 +19,7 @@ namespace GitKeeper.Themes
 
         public Theme()
         {
-
+            Initialize();
         }
 
         protected void Initialize()

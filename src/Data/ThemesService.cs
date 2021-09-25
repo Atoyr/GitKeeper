@@ -1,6 +1,8 @@
 using System;
 using System.IO;
+using System.Linq;
 using System.Collections.Generic;
+using GitKeeper;
 using GitKeeper.Themes;
 
 namespace GitKeeper.Data
@@ -8,93 +10,73 @@ namespace GitKeeper.Data
     public class ThemesService
     {
         public IDictionary<string, Theme> Themes { get; set; }
-        public Theme Light { get; set; }
-        public Theme Dark { get; set; }
+        public event Action OnUpdated;
+        const string DarkTheme = "dark";
+        const string LightTheme = "light";
+        const string ThemeFileExtend = "json";
 
-        private bool isDark = false;
-        protected bool IsDark
+        private AppConfig appConfig { get; set; }
+        private string themeName { get; set; }
+
+
+        private ThemesService() {}
+
+        public ThemesService(AppConfig appConfig)
         {
-          get => isDark;
-          set
-          {
-            isDark = value;
-            ChangeColor();
-          }
-        }
-
-        public event Action OnColorChanged;
-
-        public ThemesService()
-        {
+            this.appConfig = appConfig;
             Themes = new Dictionary<string, Theme>();
-            Light = new Theme();
-            Dark = new Theme();
-
-            // Light.Base.Background = "bg-white";
-            // Light.Base.Foreground = "fg-black";
-            // Light.Primary.Background = "bg-blue-accent-2";
-            // Light.Primary.Foreground = "fg-white";
-            // Light.Secondary.Background = "bg-blue-lighten-4";
-            // Light.Secondary.Foreground = "fg-black";
-            // Light.Accent.Background = "bg-deep-purple-darken-3";
-            // Light.Accent.Foreground = "fg-white";
-            // Light.Error.Background = "bg-red-darken-2";
-            // Light.Error.Foreground = "fg-white";
-            // Light.Success.Background = "bg-green-accent-2";
-            // Light.Success.Foreground = "fg-white";
-            // Light.Warning.Background = "bg-amber-darken-4";
-            // Light.Warning.Foreground = "fg-white";
-
-            // Dark.Base.Background = "bg-black";
-            // Dark.Base.Foreground = "fg-white";
-            // Dark.Primary.Background = "bg-blue-accent-2";
-            // Dark.Primary.Foreground = "fg-white";
-            // Dark.Secondary.Background = "bg-blue-lighten-4";
-            // Dark.Secondary.Foreground = "fg-black";
-            // Dark.Accent.Background = "bg-deep-purple-darken-3";
-            // Dark.Accent.Foreground = "fg-white";
-            // Dark.Error.Background = "bg-red-darken-2";
-            // Dark.Error.Foreground = "fg-white";
-            // Dark.Success.Background = "bg-green-accent-2";
-            // Dark.Success.Foreground = "fg-white";
-            // Dark.Warning.Background = "bg-amber-darken-4";
-            // Dark.Warning.Foreground = "fg-white";
-
-            Themes["light"] = Light;
-            Themes["dark"] = Dark;
+            Initialize();
         }
 
         public void ChangeTheme( string themeName)
         {
-          switch ( themeName.ToLower() )
-          {
-          case "dark":
-            IsDark = true;
-            break;
-          case "light":
-            IsDark = false;
-            break;
-          default:
-            IsDark = false;
-            break;
-          }
+            if (Themes.Any(x => x.Key == themeName.ToLower()))
+            {
+              this.themeName = themeName.ToLower();
+            }
         }
-
-        public void ChangeColor()
-        {
-            OnColorChanged?.Invoke();
-        }
-
         public Theme Theme()
         {
-          if ( IsDark)
-          {
-            return Themes["dark"];
-          }
-          else
-          {
-            return Themes["light"];
-          }
+            if (Themes.Any(x => x.Key == themeName.ToLower()))
+            {
+                return Themes[themeName];
+            }
+            else if (Themes.Any(x => x.Key == LightTheme))
+            {
+                return Themes[LightTheme];
+            }
+            else if (Themes.Count() > 0 )
+            {
+                return Themes.First().Value;
+            }
+            return null;
+        }
+
+        public void Update()
+        {
+            OnUpdated?.Invoke();
+        }
+
+        protected void Initialize()
+        {
+            Themes[LightTheme] = light;
+            themeName = LightTheme;
+        }
+
+        private Theme light
+        {
+            get
+            {
+                var t = new Theme();
+                t.Default.SetColor(Colors.Shades.Black, Colors.Shades.White);
+                t.Surface.SetColor(Colors.Shades.Black, Colors.Shades.White);
+                t.Primary.SetColor(Colors.Shades.Black, Colors.DeepOrange.Darken1);
+                t.PrimaryVariant.SetColor(Colors.Shades.Black, Colors.DeepOrange.Darken4);
+                t.Secondary.SetColor(Colors.Shades.White, Colors.Indigo.Darken1);
+                t.SecondaryVariant.SetColor(Colors.Shades.White, Colors.Indigo.Darken4);
+                t.Error.SetColor(Colors.Shades.White, Colors.Red.Accent4);
+                return t;
+            }
         }
     }
 }

@@ -28,7 +28,7 @@ namespace GitKeeper
 
         protected void Initialize()
         {
-            if (IsOSPlatform(OSPlatform.Windows))
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
                 Path = System.IO.Path.Combine(Environment.GetEnvironmentVariable(USERPROFILE), "." + AppName);
             }
@@ -47,9 +47,9 @@ namespace GitKeeper
 
         protected void ThemeInitialize()
         {
-            if (!System.IO.Directory.Exists(ThemePath))
+            if (!System.IO.Directory.Exists(ThemeDirectory))
             {
-                System.IO.Directory.CreateDirectory(ThemePath);
+                System.IO.Directory.CreateDirectory(ThemeDirectory);
             }
         }
     }
