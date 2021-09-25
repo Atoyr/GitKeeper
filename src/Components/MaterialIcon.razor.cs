@@ -53,6 +53,16 @@ namespace GitKeeper.Components
             }
         }
 
+        protected string Style
+        {
+            get
+            {
+                return StyleBuilder.Empty()
+                    .AddStyle("font-size", $"{Size}px")
+                    .Build();
+            }
+        }
+
         private string themeString
         {
             get
