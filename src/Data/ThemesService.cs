@@ -10,6 +10,7 @@ namespace GitKeeper.Data
     public class ThemesService
     {
         public IDictionary<string, Theme> Themes { get; set; }
+        public IEnumerable<string> ThemesName { get => Themes.Select(x => x.Name).ToList(); }
         public event Action OnUpdated;
         const string DarkTheme = "dark";
         const string LightTheme = "light";
@@ -60,6 +61,7 @@ namespace GitKeeper.Data
         protected void Initialize()
         {
             Themes[LightTheme] = light;
+            Themes[DarkTheme] = dark;
             themeName = LightTheme;
         }
 
@@ -70,9 +72,27 @@ namespace GitKeeper.Data
                 var t = new Theme();
                 t.Default.SetColor(Colors.Shades.Black, Colors.Shades.White);
                 t.Surface.SetColor(Colors.Shades.Black, Colors.Shades.White);
-                t.Primary.SetColor(Colors.Shades.Black, Colors.DeepOrange.Darken1);
+                t.Surface.OnBackground = Colors.Shades.Darken20);
+                t.Primary.SetColor(Colors.Shades.Black, Colors.DeepOrange.Darken1, Colors.Shades.Black, Colors.Shades.White);
                 t.PrimaryVariant.SetColor(Colors.Shades.Black, Colors.DeepOrange.Darken4);
-                t.Secondary.SetColor(Colors.Shades.White, Colors.Indigo.Darken1);
+                t.Secondary.SetColor(Colors.Shades.White, Colors.Indigo.Darken1, Colors.Shades.White, Colors.Shades.Black);
+                t.SecondaryVariant.SetColor(Colors.Shades.White, Colors.Indigo.Darken4);
+                t.Error.SetColor(Colors.Shades.White, Colors.Red.Accent4);
+                return t;
+            }
+        }
+
+        private Theme dark
+        {
+            get
+            {
+                var t = new Theme();
+                t.Default.SetColor(Colors.Shades.White, Colors.Shades.Black);
+                t.Surface.SetColor(Colors.Shades.White, Colors.Shades.Black);
+                t.Surface.OnBackground = Colors.Shades.Darken20);
+                t.Primary.SetColor(Colors.Shades.Black, Colors.DeepOrange.Darken1, Colors.Shades.Black, Colors.Shades.White);
+                t.PrimaryVariant.SetColor(Colors.Shades.Black, Colors.DeepOrange.Darken4);
+                t.Secondary.SetColor(Colors.Shades.White, Colors.Indigo.Darken1, Colors.Shades.White, Colors.Shades.Black);
                 t.SecondaryVariant.SetColor(Colors.Shades.White, Colors.Indigo.Darken4);
                 t.Error.SetColor(Colors.Shades.White, Colors.Red.Accent4);
                 return t;
