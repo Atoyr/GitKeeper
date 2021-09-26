@@ -12,12 +12,15 @@ else
 {
 
   <div class="flex-container-column">
-  <MaterialIcon Theme="@Themes.Filled" Size="24" Color="fg-red">cast_connected</MaterialIcon>
-  <MaterialIcon Theme="@Themes.Outlined" Size="24" Color="fg-purple">cast_connected</MaterialIcon>
-  <MaterialIcon Theme="@Themes.Rounded" Size="24">cast_connected</MaterialIcon>
-  <MaterialIcon Theme="@Themes.Sharp" Size="24">cast_connected</MaterialIcon>
-  <MaterialIcon Theme="@Themes.TwoTone" Size="24">cast_connected</MaterialIcon>
-  <button @onclick="ShowOpenDialog"> Choose Repository </button>
+  <button class="@CardButtonClass" style="width: 400px; height: 100px;" @onclick="ShowOpenDialog">
+    <div class="flex-container-row" style="aligin-item : flex-start;">
+      <MaterialIcon Theme="@Themes.Filled" Size="96" Color="fg-red">source</MaterialIcon>
+      <div>
+        <h1> Open Local Repository </h1>
+        <p>open local repository</p>
+      </div>
+    </div>
+  </button>
   <button> Clone Repository </button>
   <button @onclick="ChangeTheme" > change </button>
   </div>

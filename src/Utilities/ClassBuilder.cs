@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using GitKeeper.Themes;
 
@@ -31,6 +32,13 @@ namespace GitKeeper.Utilities
             return cb.Add(className);
         }
 
+        public static ClassBuilder Clone(ClassBuilder classBuilder)
+        {
+            var cb = new ClassBuilder();
+            cb.classList = classBuilder.classList.ToList();
+            return cb;
+        }
+
         public ClassBuilder Add(string className) => Add(className, !string.IsNullOrWhiteSpace(className));
 
         public ClassBuilder Add(string className, string joinClassName) => Add(className + joinClassName, !string.IsNullOrWhiteSpace(className + joinClassName));
@@ -54,6 +62,8 @@ namespace GitKeeper.Utilities
         {
             Add(color?.Background);
             Add(color?.Foreground);
+            Add(color?.OnBackground);
+            Add(color?.OnForeground);
             return this;
         }
 

@@ -50,6 +50,10 @@ namespace GitKeeper.Pages
             .Add(themesService?.Theme().Primary)
             .Build();
 
+        public string CardButtonClass => new ClassBuilder("card")
+            .Add(themesService?.Theme().Surface)
+            .Build();
+
         public void ChangeTheme()
         {
             themesService.ChangeTheme(isDark ? "dark": "light");
