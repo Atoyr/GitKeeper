@@ -680,30 +680,30 @@
   background-color: rgba(255,255,255,0);
 }
 
-.bg-darken-80:hover {
-  color: rgba(0,0,0,0.8);
+.bg-darken-80 {
+  background-color: rgba(0,0,0,0.8);
 }
-.bg-darken-60:hover {
-  color: rgba(0,0,0,0.6);
+.bg-darken-60 {
+  background-color: rgba(0,0,0,0.6);
 }
-.bg-darken-40:hover {
-  color: rgba(0,0,0,0.4);
+.bg-darken-40 {
+  background-color: rgba(0,0,0,0.4);
 }
-.bg-darken-20:hover {
-  color: rgba(0,0,0,0.2);
+.bg-darken-20 {
+  background-color: rgba(0,0,0,0.2);
 }
 
-.bg-lighten-80:hover {
-  color: rgba(255,255,255,0.8);
+.bg-lighten-80 {
+  background-color: rgba(255,255,255,0.8);
 }
-.bg-lighten-60:hover {
-  color: rgba(255,255,255,0.6);
+.bg-lighten-60 {
+  background-color: rgba(255,255,255,0.6);
 }
-.bg-lighten-40:hover {
-  color: rgba(255,255,255,0.4);
+.bg-lighten-40 {
+  background-color: rgba(255,255,255,0.4);
 }
-.bg-lighten-20:hover {
-  color: rgba(255,255,255,0.2);
+.bg-lighten-20 {
+  background-color: rgba(255,255,255,0.2);
 }
 
 /* forground */
@@ -1387,29 +1387,29 @@
   color: rgba(255,255,255,0);
 }
 
-.fg-darken-80:hover {
+.fg-darken-80 {
   color: rgba(0,0,0,0.8);
 }
-.fg-darken-60:hover {
+.fg-darken-60 {
   color: rgba(0,0,0,0.6);
 }
-.fg-darken-40:hover {
+.fg-darken-40 {
   color: rgba(0,0,0,0.4);
 }
-.fg-darken-20:hover {
+.fg-darken-20 {
   color: rgba(0,0,0,0.2);
 }
 
-.fg-lighten-80:hover {
+.fg-lighten-80 {
   color: rgba(255,255,255,0.8);
 }
-.fg-lighten-60:hover {
+.fg-lighten-60 {
   color: rgba(255,255,255,0.6);
 }
-.fg-lighten-40:hover {
+.fg-lighten-40 {
   color: rgba(255,255,255,0.4);
 }
-.fg-lighten-20:hover {
+.fg-lighten-20 {
   color: rgba(255,255,255,0.2);
 }
 
@@ -2822,4 +2822,711 @@
 }
 .hover-fg-lighten-20:hover {
   color: rgba(255,255,255,0.2);
+}
+
+/* Stroke */
+/* Red */
+.stroke-red {
+  stroke: #F44336;
+}
+.stroke-red-lighten-5 {
+  stroke: #FFEBEE;
+}
+.stroke-red-lighten-4 {
+  stroke: #FFCDD2;
+}
+.stroke-red-lighten-3 {
+  stroke: #EF9A9A;
+}
+.stroke-red-lighten-2 {
+  stroke: #E57373;
+}
+.stroke-red-lighten-1 {
+  stroke: #EF5350;
+}
+.stroke-red-darken-1 {
+  stroke: #E53935;
+}
+.stroke-red-darken-2 {
+  stroke: #D32F2F;
+}
+.stroke-red-darken-3 {
+  stroke: #C62828;
+}
+.stroke-red-darken-4 {
+  stroke: #B71C1C;
+}
+.stroke-red-accent-1 {
+  stroke: #FF8A80;
+}
+.stroke-red-accent-2 {
+  stroke: #FF5252;
+}
+.stroke-red-accent-3 {
+  stroke: #FF1744;
+}
+.stroke-red-accent-4 {
+  stroke: #D50000;
+}
+
+/* Pink */
+.stroke-pink {
+  stroke: #E91E63;
+}
+.stroke-pink-lighten-5 {
+  stroke: #FCE4EC;
+}
+.stroke-pink-lighten-4 {
+  stroke: #F8BBD0;
+}
+.stroke-pink-lighten-3 {
+  stroke: #F48FB1;
+}
+.stroke-pink-lighten-2 {
+  stroke: #F06292;
+}
+.stroke-pink-lighten-1 {
+  stroke: #EC407A;
+}
+.stroke-pink-darken-1 {
+  stroke: #D81B60;
+}
+.stroke-pink-darken-2 {
+  stroke: #C2185B;
+}
+.stroke-pink-darken-3 {
+  stroke: #AD1457;
+}
+.stroke-pink-darken-4 {
+  stroke: #880E4F;
+}
+.stroke-pink-accent-1 {
+  stroke: #FF80AB;
+}
+.stroke-pink-accent-2 {
+  stroke: #FF4081;
+}
+.stroke-pink-accent-3 {
+  stroke: #F50057;
+}
+.stroke-pink-accent-4 {
+  stroke: #C51162;
+}
+
+/* Purple */
+.stroke-purple {
+  stroke: #9C27B0;
+}
+.stroke-purple-lighten-5 {
+  stroke: #F3E5F5;
+}
+.stroke-purple-lighten-4 {
+  stroke: #E1BEE7;
+}
+.stroke-purple-lighten-3 {
+  stroke: #CE93D8;
+}
+.stroke-purple-lighten-2 {
+  stroke: #BA68C8;
+}
+.stroke-purple-lighten-1 {
+  stroke: #AB47BC;
+}
+.stroke-purple-darken-1 {
+  stroke: #8E24AA;
+}
+.stroke-purple-darken-2 {
+  stroke: #7B1FA2;
+}
+.stroke-purple-darken-3 {
+  stroke: #6A1B9A;
+}
+.stroke-purple-darken-4 {
+  stroke: #4A148C;
+}
+.stroke-purple-accent-1 {
+  stroke: #EA80FC;
+}
+.stroke-purple-accent-2 {
+  stroke: #E040FB;
+}
+.stroke-purple-accent-3 {
+  stroke: #D500F9;
+}
+.stroke-purple-accent-4 {
+  stroke: #AA00FF;
+}
+
+/* Deep Purple */
+.stroke-deep-purple {
+  stroke: #673AB7;
+}
+.stroke-deep-purple-lighten-5 {
+  stroke: #EDE7F6;
+}
+.stroke-deep-purple-lighten-4 {
+  stroke: #D1C4E9;
+}
+.stroke-deep-purple-lighten-3 {
+  stroke: #B39DDB;
+}
+.stroke-deep-purple-lighten-2 {
+  stroke: #9575CD;
+}
+.stroke-deep-purple-lighten-1 {
+  stroke: #7E57C2;
+}
+.stroke-deep-purple-darken-1 {
+  stroke: #5E35B1;
+}
+.stroke-deep-purple-darken-2 {
+  stroke: #512DA8;
+}
+.stroke-deep-purple-darken-3 {
+  stroke: #4527A0;
+}
+.stroke-deep-purple-darken-4 {
+  stroke: #311B92;
+}
+.stroke-deep-purple-accent-1 {
+  stroke: #B388FF;
+}
+.stroke-deep-purple-accent-2 {
+  stroke: #7C4DFF;
+}
+.stroke-deep-purple-accent-3 {
+  stroke: #651FFF;
+}
+.stroke-deep-purple-accent-4 {
+  stroke: #6200EA;
+}
+
+/* Indigo */
+.stroke-indigo {
+  stroke: #3F51B5;
+}
+.stroke-indigo-lighten-5 {
+  stroke: #E8EAF6;
+}
+.stroke-indigo-lighten-4 {
+  stroke: #C5CAE9;
+}
+.stroke-indigo-lighten-3 {
+  stroke: #9FA8DA;
+}
+.stroke-indigo-lighten-2 {
+  stroke: #7986CB;
+}
+.stroke-indigo-lighten-1 {
+  stroke: #5C6BC0;
+}
+.stroke-indigo-darken-1 {
+  stroke: #3949AB;
+}
+.stroke-indigo-darken-2 {
+  stroke: #303F9F;
+}
+.stroke-indigo-darken-3 {
+  stroke: #283593;
+}
+.stroke-indigo-darken-4 {
+  stroke: #1A237E;
+}
+.stroke-indigo-accent-1 {
+  stroke: #8C9EFF;
+}
+.stroke-indigo-accent-2 {
+  stroke: #536DFE;
+}
+.stroke-indigo-accent-3 {
+  stroke: #3D5AFE;
+}
+.stroke-indigo-accent-4 {
+  stroke: #304FFE;
+}
+
+/* blue */
+.stroke-blue {
+  stroke: #2196F3;
+}
+.stroke-blue-lighten-5 {
+  stroke: #E3F2FD;
+}
+.stroke-blue-lighten-4 {
+  stroke: #BBDEFB;
+}
+.stroke-blue-lighten-3 {
+  stroke: #90CAF9;
+}
+.stroke-blue-lighten-2 {
+  stroke: #64B5F6;
+}
+.stroke-blue-lighten-1 {
+  stroke: #42A5F5;
+}
+.stroke-blue-darken-1 {
+  stroke: #1E88E5;
+}
+.stroke-blue-darken-2 {
+  stroke: #1976D2;
+}
+.stroke-blue-darken-3 {
+  stroke: #1565C0;
+}
+.stroke-blue-darken-4 {
+  stroke: #0D47A1;
+}
+.stroke-blue-accent-1 {
+  stroke: #82B1FF;
+}
+.stroke-blue-accent-2 {
+  stroke: #448AFF;
+}
+.stroke-blue-accent-3 {
+  stroke: #2979FF;
+}
+.stroke-blue-accent-4 {
+  stroke: #2962FF;
+}
+
+/* Green */
+.stroke-green {
+  stroke: #4CAF50;
+}
+.stroke-green-lighten-5 {
+  stroke: #E8F5E9;
+}
+.stroke-green-lighten-4 {
+  stroke: #C8E6C9;
+}
+.stroke-green-lighten-3 {
+  stroke: #A5D6A7;
+}
+.stroke-green-lighten-2 {
+  stroke: #81C784;
+}
+.stroke-green-lighten-1 {
+  stroke: #66BB6A;
+}
+.stroke-green-darken-1 {
+  stroke: #43A047;
+}
+.stroke-green-darken-2 {
+  stroke: #388E3C;
+}
+.stroke-green-darken-3 {
+  stroke: #2E7D32;
+}
+.stroke-green-darken-4 {
+  stroke: #1B5E20;
+}
+.stroke-green-accent-1 {
+  stroke: #B9F6CA;
+}
+.stroke-green-accent-2 {
+  stroke: #69F0AE;
+}
+.stroke-green-accent-3 {
+  stroke: #00E676;
+}
+.stroke-green-accent-4 {
+  stroke: #00C853;
+}
+
+/* Light Green */
+.stroke-light-green {
+  stroke: #8BC34A;
+}
+.stroke-light-green-lighten-5 {
+  stroke: #F1F8E9;
+}
+.stroke-light-green-lighten-4 {
+  stroke: #DCEDC8;
+}
+.stroke-light-green-lighten-3 {
+  stroke: #C5E1A5;
+}
+.stroke-light-green-lighten-2 {
+  stroke: #AED581;
+}
+.stroke-light-green-lighten-1 {
+  stroke: #9CCC65;
+}
+.stroke-light-green-darken-1 {
+  stroke: #7CB342;
+}
+.stroke-light-green-darken-2 {
+  stroke: #689F38;
+}
+.stroke-light-green-darken-3 {
+  stroke: #558B2F;
+}
+.stroke-light-green-darken-4 {
+  stroke: #33691E;
+}
+.stroke-light-green-accent-1 {
+  stroke: #CCFF90;
+}
+.stroke-light-green-accent-2 {
+  stroke: #B2FF59;
+}
+.stroke-light-green-accent-3 {
+  stroke: #76FF03;
+}
+.stroke-light-green-accent-4 {
+  stroke: #64DD17;
+}
+
+/* Lime */
+.stroke-lime {
+  stroke: #CDDC39;
+}
+.stroke-lime-lighten-5 {
+  stroke: #F9FBE7;
+}
+.stroke-lime-lighten-4 {
+  stroke: #F0F4C3;
+}
+.stroke-lime-lighten-3 {
+  stroke: #E6EE9C;
+}
+.stroke-lime-lighten-2 {
+  stroke: #DCE775;
+}
+.stroke-lime-lighten-1 {
+  stroke: #D4E157;
+}
+.stroke-lime-darken-1 {
+  stroke: #C0CA33;
+}
+.stroke-lime-darken-2 {
+  stroke: #AFB42B;
+}
+.stroke-lime-darken-3 {
+  stroke: #9E9D24;
+}
+.stroke-lime-darken-4 {
+  stroke: #827717;
+}
+.stroke-lime-accent-1 {
+  stroke: #F4FF81;
+}
+.stroke-lime-accent-2 {
+  stroke: #EEFF41;
+}
+.stroke-lime-accent-3 {
+  stroke: #C6FF00;
+}
+.stroke-lime-accent-4 {
+  stroke: #AEEA00;
+}
+
+/* Yellow */
+.stroke-yellow {
+  stroke: #FFEB3B;
+}
+.stroke-yellow-lighten-5 {
+  stroke: #FFFDE7;
+}
+.stroke-yellow-lighten-4 {
+  stroke: #FFF9C4;
+}
+.stroke-yellow-lighten-3 {
+  stroke: #FFF59D;
+}
+.stroke-yellow-lighten-2 {
+  stroke: #FFF176;
+}
+.stroke-yellow-lighten-1 {
+  stroke: #FFEE58;
+}
+.stroke-yellow-darken-1 {
+  stroke: #FDD835;
+}
+.stroke-yellow-darken-2 {
+  stroke: #FBC02D;
+}
+.stroke-yellow-darken-3 {
+  stroke: #F9A825;
+}
+.stroke-yellow-darken-4 {
+  stroke: #F57F17;
+}
+.stroke-yellow-accent-1 {
+  stroke: #FFFF8D;
+}
+.stroke-yellow-accent-2 {
+  stroke: #FFFF00;
+}
+.stroke-yellow-accent-3 {
+  stroke: #FFEA00;
+}
+.stroke-yellow-accent-4 {
+  stroke: #FFD600;
+}
+
+/* Amber */
+.stroke-amber {
+  stroke: #FFC107;
+}
+.stroke-amber-lighten-5 {
+  stroke: #FFF8E1;
+}
+.stroke-amber-lighten-4 {
+  stroke: #FFECB3;
+}
+.stroke-amber-lighten-3 {
+  stroke: #FFE082;
+}
+.stroke-amber-lighten-2 {
+  stroke: #FFD54F;
+}
+.stroke-amber-lighten-1 {
+  stroke: #FFCA28;
+}
+.stroke-amber-darken-1 {
+  stroke: #FFB300;
+}
+.stroke-amber-darken-2 {
+  stroke: #FFA000;
+}
+.stroke-amber-darken-3 {
+  stroke: #FF8F00;
+}
+.stroke-amber-darken-4 {
+  stroke: #FF6F00;
+}
+.stroke-amber-accent-1 {
+  stroke: #FFE57F;
+}
+.stroke-amber-accent-2 {
+  stroke: #FFD740;
+}
+.stroke-amber-accent-3 {
+  stroke: #FFC400;
+}
+.stroke-amber-accent-4 {
+  stroke: #FFAB00;
+}
+
+/* Orange */
+.stroke-orange {
+  stroke: #FF9800;
+}
+.stroke-orange-lighten-5 {
+  stroke: #FFF3E0;
+}
+.stroke-orange-lighten-4 {
+  stroke: #FFE0B2;
+}
+.stroke-orange-lighten-3 {
+  stroke: #FFCC80;
+}
+.stroke-orange-lighten-2 {
+  stroke: #FFB74D;
+}
+.stroke-orange-lighten-1 {
+  stroke: #FFA726;
+}
+.stroke-orange-darken-1 {
+  stroke: #FB8C00;
+}
+.stroke-orange-darken-2 {
+  stroke: #F57C00;
+}
+.stroke-orange-darken-3 {
+  stroke: #EF6C00;
+}
+.stroke-orange-darken-4 {
+  stroke: #E65100;
+}
+.stroke-orange-accent-1 {
+  stroke: #FFD180;
+}
+.stroke-orange-accent-2 {
+  stroke: #FFAB40;
+}
+.stroke-orange-accent-3 {
+  stroke: #FF9100;
+}
+.stroke-orange-accent-4 {
+  stroke: #FF6D00;
+}
+
+/* Deep Orange */
+.stroke-deep-orange {
+  stroke: #FF5722;
+}
+.stroke-deep-orange-lighten-5 {
+  stroke: #FBE9E7;
+}
+.stroke-deep-orange-lighten-4 {
+  stroke: #FFCCBC;
+}
+.stroke-deep-orange-lighten-3 {
+  stroke: #FFAB91;
+}
+.stroke-deep-orange-lighten-2 {
+  stroke: #FF8A65;
+}
+.stroke-deep-orange-lighten-1 {
+  stroke: #FF7043;
+}
+.stroke-deep-orange-darken-1 {
+  stroke: #F4511E;
+}
+.stroke-deep-orange-darken-2 {
+  stroke: #E64A19;
+}
+.stroke-deep-orange-darken-3 {
+  stroke: #D84315;
+}
+.stroke-deep-orange-darken-4 {
+  stroke: #BF360C;
+}
+.stroke-deep-orange-accent-1 {
+  stroke: #FF9E80;
+}
+.stroke-deep-orange-accent-2 {
+  stroke: #FF6E40;
+}
+.stroke-deep-orange-accent-3 {
+  stroke: #FF3D00;
+}
+.stroke-deep-orange-accent-4 {
+  stroke: #DD2C00;
+}
+
+/* Brown */
+.stroke-brown {
+  stroke: #795548;
+}
+.stroke-brown-lighten-5 {
+  stroke: #EFEBE9;
+}
+.stroke-brown-lighten-4 {
+  stroke: #D7CCC8;
+}
+.stroke-brown-lighten-3 {
+  stroke: #BCAAA4;
+}
+.stroke-brown-lighten-2 {
+  stroke: #A1887F;
+}
+.stroke-brown-lighten-1 {
+  stroke: #8D6E63;
+}
+.stroke-brown-darken-1 {
+  stroke: #6D4C41;
+}
+.stroke-brown-darken-2 {
+  stroke: #5D4037;
+}
+.stroke-brown-darken-3 {
+  stroke: #4E342E;
+}
+.stroke-brown-darken-4 {
+  stroke: #3E2723;
+}
+
+/* Blue Gray */
+.stroke-blue-grey {
+  stroke: #607D8B;
+}
+.stroke-blue-grey-lighten-5 {
+  stroke: #ECEFF1;
+}
+.stroke-blue-grey-lighten-4 {
+  stroke: #CFD8DC;
+}
+.stroke-blue-grey-lighten-3 {
+  stroke: #B0BEC5;
+}
+.stroke-blue-grey-lighten-2 {
+  stroke: #90A4AE;
+}
+.stroke-blue-grey-lighten-1 {
+  stroke: #78909C;
+}
+.stroke-blue-grey-darken-1 {
+  stroke: #546E7A;
+}
+.stroke-blue-grey-darken-2 {
+  stroke: #455A64;
+}
+.stroke-blue-grey-darken-3 {
+  stroke: #37474F;
+}
+.stroke-blue-grey-darken-4 {
+  stroke: #263238;
+}
+
+/* Gray */
+.stroke-grey {
+  stroke: #9E9E9E;
+}
+.stroke-grey-lighten-5 {
+  stroke: #FAFAFA;
+}
+.stroke-grey-lighten-4 {
+  stroke: #F5F5F5;
+}
+.stroke-grey-lighten-3 {
+  stroke: #EEEEEE;
+}
+.stroke-grey-lighten-2 {
+  stroke: #E0E0E0;
+}
+.stroke-grey-lighten-1 {
+  stroke: #BDBDBD;
+}
+.stroke-grey-darken-1 {
+  stroke: #757575;
+}
+.stroke-grey-darken-2 {
+  stroke: #616161;
+}
+.stroke-grey-darken-3 {
+  stroke: #424242;
+}
+.stroke-grey-darken-4 {
+  stroke: #212121;
+}
+
+.stroke-black {
+  stroke: #000000;
+}
+
+.stroke-white {
+  stroke: #FFFFFF;
+}
+
+.stroke-transparent {
+  stroke: rgba(255,255,255,0);
+}
+
+.stroke-darken-80 {
+  stroke: rgba(0,0,0,0.8);
+}
+.stroke-darken-60 {
+  stroke: rgba(0,0,0,0.6);
+}
+.stroke-darken-40 {
+  stroke: rgba(0,0,0,0.4);
+}
+.stroke-darken-20 {
+  stroke: rgba(0,0,0,0.2);
+}
+
+.stroke-lighten-80 {
+  stroke: rgba(255,255,255,0.8);
+}
+.stroke-lighten-60 {
+  stroke: rgba(255,255,255,0.6);
+}
+.stroke-lighten-40 {
+  stroke: rgba(255,255,255,0.4);
+}
+.stroke-lighten-20 {
+  stroke: rgba(255,255,255,0.2);
 }
