@@ -16,16 +16,29 @@ else
     <div class="flex-container-row" style="aligin-item : flex-start;">
       <MaterialIcon Theme="@Themes.Filled" Size="96" Color="fg-red">source</MaterialIcon>
       <div>
-        <h1> Open Local Repository </h1>
+        <h6> Open Local Repository </h6>
         <p>open local repository</p>
       </div>
     </div>
   </button>
-  <button> Clone Repository </button>
-  <button @onclick="ChangeTheme" > change </button>
+  <button class="@CardButtonClass" style="width: 400px; height: 100px;" @onclick="ShowOpenDialog">
+    <div class="flex-container-row" style="aligin-item : flex-start;">
+      <MaterialIcon Theme="@Themes.Filled" Size="96" Color="fg-red">file_download</MaterialIcon>
+      <div>
+        <h6>Clone Repository </h6>
+        <p>clone repository</p>
+      </div>
+    </div>
+  </button>
+  <button class="@CardButtonClass" style="width: 400px; height: 100px;" @onclick="ChangeTheme">
+    <div class="flex-container-row" style="aligin-item : flex-start;">
+      <MaterialIcon Theme="@Themes.Filled" Size="96" Color="fg-red">source</MaterialIcon>
+      <div>
+        <h6>Change Theme</h6>
+        <p>change theme</p>
+      </div>
+    </div>
+  </button>
   </div>
 }
-
-
-
 </div>

@@ -1,0 +1,87 @@
+html{
+    font-size: 62.5%;
+}
+
+h1 {
+    font-size: 9.6rem;
+    font-weight: lighter;
+    letter-spacing: -1.5px;
+}
+
+h2 {
+    font-size: 6rem;
+    font-weight: lighter;
+    letter-spacing: -0.5px;
+}
+
+h3 {
+    font-size: 4.8rem;
+    font-weight: normal;
+    letter-spacing: 0px;
+}
+
+h4 {
+    font-size: 3.4rem;
+    font-weight: normal;
+    letter-spacing: 0.25px;
+}
+
+h5 {
+    font-size: 2.4rem;
+    font-weight: normal;
+    letter-spacing: 0px;
+}
+
+h6 {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 0.15px;
+}
+
+p {
+    font-size: 1.6rem;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+}
+
+.subtitle1 {
+    font-size: 1.6rem;
+    font-weight: normal;
+    letter-spacing: 0.15px;
+}
+
+.subtitle2 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    letter-spacing: 0.1px;
+}
+
+.body1 {
+    font-size: 1.6rem;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+}
+
+.body2 {
+    font-size: 1.4rem;
+    font-weight: normal;
+    letter-spacing: 0.25px;
+}
+
+.button {
+    font-size: 1.4rem;
+    font-weight: bold;
+    letter-spacing: 1.25px;
+}
+
+.caption {
+    font-size: 1.2rem;
+    font-weight: normal;
+    letter-spacing: 0.4px;
+}
+
+.overline {
+    font-size: 1rem;
+    font-weight: normal;
+    letter-spacing: 1.5px;
+}
