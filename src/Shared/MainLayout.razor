@@ -1,9 +1,14 @@
 @inherits LayoutComponentBase
+@using GitKeeper.Components
 
 <div class="primary">
     <!-- <TabBar /> -->
     <div class="main">
       @Body
+      <div class="modal-wrapper">
+        <Spinner ></Spinner>
+        <Spinner Size=48></Spinner>
+      </div>
     </div>
     <div class=@ToolBarClass>
       <p>tool bar</p>
