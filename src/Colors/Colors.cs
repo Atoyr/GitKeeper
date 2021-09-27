@@ -314,6 +314,7 @@ namespace GitKeeper
         public static string Background(string color) => "bg-" + removeAttribute(color);
         public static string HoverForeground(string color) => "hover-fg-" + removeAttribute(color);
         public static string HoverBackground(string color) => "hover-bg-" + removeAttribute(color);
+        public static string Stroke(string color) => "stroke-" + removeAttribute(color);
 
         private static string removeAttribute(string color) => Regex.Replace(color, "^(fg-|bg-|hover-fg|hover-bg)", "");
 
