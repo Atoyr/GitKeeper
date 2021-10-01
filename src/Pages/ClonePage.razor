@@ -1,0 +1,16 @@
+@page "/clone"
+
+<div class="@BaseClass" >
+@if (IsCloning)
+{
+
+}
+else
+{
+    <input @bind='Url'></input>
+    <input @bind='Path'></input>
+    <input @bind='FolderName'></input>
+    <button>Clone</button>
+    <button>back</button>
+}
+</div>

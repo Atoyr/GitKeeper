@@ -63,7 +63,7 @@ namespace GitKeeper.Pages
             isDark = !isDark;
         }
 
-        async void ShowOpenDialog()
+        async void FolderOpen()
         {
             if (JSRuntime == null ) return;
             var result = await JSRuntime.ShowOpenDialog(new OpenDialogOption {
@@ -89,6 +89,11 @@ namespace GitKeeper.Pages
                     windowManagerService.IsLoading = false;
                 }
             }
+        }
+
+        async void Clone()
+        {
+            NavigationManager.NavigateTo("clone");
         }
 
         async void Loading()
