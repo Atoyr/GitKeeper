@@ -6,7 +6,7 @@ namespace GitKeeper
     public class AppConfig
     {
         const string USERPROFILE = "USERPROFILE";
-        const string HOME = "USERPROFILE";
+        const string HOME = "HOME";
         const string ConfigFileName = "config";
         const string ThemeFolderName = "Theme";
 
