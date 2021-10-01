@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.Extensions.Logging;
 using GitKeeper.Data;
+using GitKeeper.Components;
 using GitKeeper.Utilities;
 
 namespace GitKeeper.Shared
@@ -17,6 +18,9 @@ namespace GitKeeper.Shared
   {
       [Inject]
       public ThemesService themesService { get; set; }
+
+      [Inject]
+      public WindowManagerService windowManagerService { get; set; }
 
       public string ToolBarClass
       {
@@ -29,6 +33,7 @@ namespace GitKeeper.Shared
 
       protected override void OnInitialized()
       {
+        windowManagerService.OnIsLoadingChanged += () => InvokeAsync(() => StateHasChanged());
       }
   }
 }

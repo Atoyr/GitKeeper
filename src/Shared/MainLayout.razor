@@ -5,10 +5,12 @@
     <!-- <TabBar /> -->
     <div class="main">
       @Body
+      @if (windowManagerService.IsLoading)
+      {
       <div class="modal-wrapper">
-        <Spinner ></Spinner>
-        <Spinner Size=48></Spinner>
+        <Spinner></Spinner>
       </div>
+      }
     </div>
     <div class=@ToolBarClass>
       <p>tool bar</p>

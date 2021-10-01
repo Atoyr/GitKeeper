@@ -22,6 +22,9 @@ namespace GitKeeper.Pages
         public NavigationManager NavigationManager { set; get; }
 
         [Inject]
+        public WindowManagerService windowManagerService { set; get; }
+
+        [Inject]
         public RepositoryService Repositories { set; get; }
 
         [Inject]
@@ -70,6 +73,7 @@ namespace GitKeeper.Pages
                     Properties = new string[] { "openDirectory" },
                     });
             if (!result.Canceled) {
+                windowManagerService.IsLoading = true;
                 try
                 {
                   var repositoryInfo = Repositories.AddRepository(result.FilePaths.FirstOrDefault());
@@ -80,7 +84,17 @@ namespace GitKeeper.Pages
                   StateHasChanged();
                   return;
                 }
+                finally
+                {
+                    windowManagerService.IsLoading = false;
+                }
             }
+        }
+
+        async void Loading()
+        {
+            windowManagerService.IsLoading = !windowManagerService.IsLoading;
+            StateHasChanged();
         }
     }
 }

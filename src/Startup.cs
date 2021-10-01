@@ -30,6 +30,7 @@ namespace GitKeeper
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddSingleton<WindowManagerService>();
             services.AddSingleton<RepositoryService>();
             services.AddSingleton<ThemesService>();
             services.AddSingleton<AppConfig>(new AppConfig("gitkeeper"));

@@ -24,25 +24,33 @@ namespace GitKeeper.Pages
         [Inject]
         public RepositoryService Repositories { set; get; }
 
+        [Inject]
+        public WindowManagerService windowManagerService { set; get; }
+
         protected LibGit2Sharp.Repository Repository { get; set; }
 
-        protected List<CommitInfo> Commits { get; set; }
+        protected List<CommitInfo> Commits { get; set; } = new List<CommitInfo>();
 
-        protected override void OnInitialized()
+        protected override async Task OnInitializedAsync()
         {
+            windowManagerService.IsLoading = true;
             var repositoryInfo = Repositories.GetRepository(ID);
             this.Repository = new LibGit2Sharp.Repository(repositoryInfo.Path);
 
-            Commits = CommitInfo.GenerateCommitInfos(this.Repository.Head.Commits, this.Repository.Branches);
-
+            Commits = await GenerateCommitInfosAsync(this.Repository.Head.Commits, this.Repository.Branches);
 
             // foreach( var commit in this.Repository.Head.Commits)
             // {
             //     Commits.Add(new CommitInfo(commit,this.Repository.Branches));
             // }
+
+            windowManagerService.IsLoading = false;
         }
 
-
+        protected Task<List<CommitInfo>> GenerateCommitInfosAsync(IEnumerable<Commit> commits, BranchCollection branches)
+        {
+            return Task.Run(() => CommitInfo.GenerateCommitInfos(commits, branches));
+        }
     }
 }
 

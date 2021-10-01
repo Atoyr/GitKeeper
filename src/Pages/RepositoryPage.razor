@@ -11,8 +11,7 @@
     <th><p>SHA</p></th>
     <th><p>commit datetime</p></th>
   </tr>
-  @foreach(var commit in Commits)
-  {
+  <Virtualize Items="@Commits" Context="commit">
     <!--
     <div class="commit-log-container">
       <div class="commit-log-a">@commit.MessageShort</div>
@@ -34,6 +33,6 @@
        <td>@commit.ShaShort</td>
        <td>@commit.DateTime.ToString("yyyy/MM/dd HH:mm:ss")  </td>
     </tr>
-  }
+ </Virtualize>
 </table>
 </div>
