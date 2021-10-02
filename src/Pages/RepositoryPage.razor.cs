@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Components.Web.Virtualization;
 using Microsoft.JSInterop;
 using GitKeeper;
 using GitKeeper.Data;
@@ -29,7 +30,7 @@ namespace GitKeeper.Pages
 
         protected LibGit2Sharp.Repository Repository { get; set; }
 
-        protected List<CommitInfo> Commits { get; set; } = new List<CommitInfo>();
+        protected IEnumerable<CommitInfo> Commits { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
@@ -47,7 +48,19 @@ namespace GitKeeper.Pages
             windowManagerService.IsLoading = false;
         }
 
-        protected Task<List<CommitInfo>> GenerateCommitInfosAsync(IEnumerable<Commit> commits, BranchCollection branches)
+        // protected async ValueTask<ItemsProviderResult<CommitInfo>> GenerateCommitInfosProvider(ItemsProviderRequest request)
+        // {
+        //     Console.WriteLine($"StartIndex: {request.StartIndex}, Count: {request.Count}");
+        //     // このメソッドで読み込む必要のあるデータ件数
+
+        //     // データを読み込んで返す
+        //     var data = await GenerateCommitInfosAsync(this.Repository.Head.Commits, this.Repository.Branches);
+        //     // var data = CommitInfo.GenerateCommitInfos(this.Repository.Head.Commits, this.Repository.Branches, request.StartIndex, numCommits);
+
+        //     return new ItemsProviderResult<CommitInfo>(data.Skip(request.StartIndex).Take(request.Count), data.Count());
+        // }
+
+        protected Task<IEnumerable<CommitInfo>> GenerateCommitInfosAsync(IEnumerable<Commit> commits, BranchCollection branches)
         {
             return Task.Run(() => CommitInfo.GenerateCommitInfos(commits, branches));
         }

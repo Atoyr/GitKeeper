@@ -11,7 +11,6 @@
     <th><p>SHA</p></th>
     <th><p>commit datetime</p></th>
   </tr>
-  <Virtualize Items="@Commits" Context="commit">
     <!--
     <div class="commit-log-container">
       <div class="commit-log-a">@commit.MessageShort</div>
@@ -19,7 +18,10 @@
       <div class="commit-log-c">@commit.Author.When.DateTime.ToString("yyyy/MM/dd HH:mm:ss") </div>
     </div>
     -->
-    <tr class="hover-bg-darken-20">
+    @if(Commits is not null)
+    {
+    @foreach (var commit in Commits)
+    { <tr class="hover-bg-darken-20">
        <td>
          <p class="bg-blue">
            @foreach(var b in commit.Branches)
@@ -33,6 +35,7 @@
        <td>@commit.ShaShort</td>
        <td>@commit.DateTime.ToString("yyyy/MM/dd HH:mm:ss")  </td>
     </tr>
- </Virtualize>
+    }
+    }
 </table>
 </div>

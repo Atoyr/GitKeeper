@@ -17,9 +17,8 @@ namespace GitKeeper.Data
         public DateTime DateTime { get; private set; }
         public List<Branch> Branches { get; set; }
 
-        public static List<CommitInfo> GenerateCommitInfos(IEnumerable<Commit> commits, BranchCollection branches)
+        public static IEnumerable<CommitInfo> GenerateCommitInfos(IEnumerable<Commit> commits, BranchCollection branches)
         {
-            var commitInfos = new List<CommitInfo>();
             var branchList = new List<Branch>();
             foreach(var commit in commits)
             {
@@ -36,11 +35,22 @@ namespace GitKeeper.Data
                         branchList.Add(b);
                     }
                 }
-                commitInfos.Add(ci);
+                yield return ci;
             }
-            return commitInfos;
         }
 
+        public static IEnumerable<CommitInfo> GenerateCommitInfos(IEnumerable<Commit> commits, BranchCollection branches, int skip, int take)
+        {
+            var start = skip - 1;
+            if (start < 0) start = 0;
+            var max = Math.Min(skip + take, commits.Count());
+            if (max < 0) max = commits.Count();
+            for(int i = start; i < max; i++)
+            {
+                var ci = new CommitInfo(commits.ElementAt(i));
+                yield return ci;
+            }
+        }
 
         private CommitInfo()
         {
